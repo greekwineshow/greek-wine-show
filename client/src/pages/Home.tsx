@@ -24,22 +24,22 @@ export default function Home() {
   const [recaptcha, setRecaptcha] = useState<RecaptchaState>({ show: false, formType: null });
 
   const handleRecaptchaVerify = () => {
-    const token = (window as any).grecaptcha?.getResponse();
-    if (token) {
+  const token = (window as any).grecaptcha?.getResponse();
+  if (!token) return;
 
-    const handleRecaptchaVerify = () => {
-      const token = (window as any).grecaptcha?.getResponse();
-      if (!token) return;
+  // Close CAPTCHA modal
+  (window as any).grecaptcha?.reset();
+  setRecaptcha({ show: false, formType: null });
 
-      // Just close captcha and allow normal submit
-     (window as any).grecaptcha?.reset();
-     setRecaptcha({ show: false, formType: null });
-    };
+  // Open the correct form
+  if (recaptcha.formType === "private") {
+    setActiveForm("enquiry");   // Open the enquiry form
+  }
 
-      (window as any).grecaptcha?.reset();
-      setRecaptcha({ show: false, formType: null });
-    }
-  };
+  if (recaptcha.formType === "partnership") {
+    setActiveForm("partnership");
+  }
+};
 
   const openRecaptchaModal = (formType: "private" | "partnership") => {
     setRecaptcha({ show: true, formType });
