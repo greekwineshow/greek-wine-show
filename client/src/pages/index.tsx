@@ -22,10 +22,32 @@ export default function Home() {
   const [availabilitySuccess, setAvailabilitySuccess] = useState(false);
   const [activeForm, setActiveForm] = useState<"tour" | "enquiry" | "partnership" | null>(null);
   const [recaptcha, setRecaptcha] = useState<RecaptchaState>({ show: false, formType: null });
+  const formTypeRef = useRef<"private" | "partnership" | null>(null);
+
 
   
 const handleRecaptchaVerify = (token: string) => {
   if (!token) return;
+
+  // Read the form type from the ref (NOT from state)
+  const formType = formTypeRef.current;
+
+  // Close the CAPTCHA modal
+  (window as any).grecaptcha?.reset();
+  setRecaptcha({ show: false, formType: null });
+
+  // Open the correct form
+  if (formType === "private") {
+    setActiveForm("enquiry");
+  }
+
+  if (formType === "partnership") {
+    setActiveForm("partnership");
+  }
+
+  // Clear the ref after use
+  formTypeRef.current = null;
+};
 
 
   // Capture the form type BEFORE resetting state
@@ -47,16 +69,20 @@ const handleRecaptchaVerify = (token: string) => {
 
 
 
-  const openRecaptchaModal = (formType: "private" | "partnership") => {
-    setRecaptcha({ show: true, formType });
-    setTimeout(() => {
-      (window as any).grecaptcha?.render('recaptcha-container', {
-       sitekey: RECAPTCHA_SITE_KEY,
-       theme: 'light',
-       callback: handleRecaptchaVerify,
-     });
-    }, 100);
-  };
+ const openRecaptchaModal = (formType: "private" | "partnership") => {
+  formTypeRef.current = formType;   // <-- store the form type safely
+
+  setRecaptcha({ show: true, formType });
+
+  setTimeout(() => {
+    (window as any).grecaptcha?.render("recaptcha-container", {
+      sitekey: RECAPTCHA_SITE_KEY,
+      theme: "light",
+      callback: handleRecaptchaVerify,   // <-- THIS is the key fix
+    });
+  }, 100);
+};
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -65,7 +91,7 @@ const handleRecaptchaVerify = (token: string) => {
           <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-2xl">
             <h3 className="text-xl font-semibold mb-4">Verify You are Human</h3>
             <p className="text-foreground/70 mb-6">Please complete the reCAPTCHA below to proceed.</p>
-            <div id="recaptcha-container" className="mb-6 flex justify-center" />
+            <div id="recaptcha-container" className="mb-6 flex justify-center"></div>
             <div className="flex gap-4">
               <button
                 onClick={() => {
