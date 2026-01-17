@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Wine, Users, MapPin, Calendar, Mail, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 /**
  * Design Philosophy: Editorial Minimalism with Mediterranean Warmth
@@ -47,24 +47,6 @@ const handleRecaptchaVerify = (token: string) => {
 
   // Clear the ref after use
   formTypeRef.current = null;
-};
-
-
-  // Capture the form type BEFORE resetting state
-  const formType = recaptcha.formType;
-
-  // Close CAPTCHA modal
-  (window as any).grecaptcha?.reset();
-  setRecaptcha({ show: false, formType: null });
-
-  // Open the correct form
-  if (formType === "private") {
-    setActiveForm("enquiry");
-  }
-
-  if (formType === "partnership") {
-    setActiveForm("partnership");
-  }
 };
 
 
