@@ -23,31 +23,38 @@ export default function Home() {
   const [activeForm, setActiveForm] = useState<"tour" | "enquiry" | "partnership" | null>(null);
   const [recaptcha, setRecaptcha] = useState<RecaptchaState>({ show: false, formType: null });
 
-  const handleRecaptchaVerify = () => {
-  const token = (window as any).grecaptcha?.getResponse();
+  
+const handleRecaptchaVerify = (token: string) => {
   if (!token) return;
+
+
+  // Capture the form type BEFORE resetting state
+  const formType = recaptcha.formType;
 
   // Close CAPTCHA modal
   (window as any).grecaptcha?.reset();
   setRecaptcha({ show: false, formType: null });
 
   // Open the correct form
-  if (recaptcha.formType === "private") {
-    setActiveForm("enquiry");   // Open the enquiry form
+  if (formType === "private") {
+    setActiveForm("enquiry");
   }
 
-  if (recaptcha.formType === "partnership") {
+  if (formType === "partnership") {
     setActiveForm("partnership");
   }
 };
+
+
 
   const openRecaptchaModal = (formType: "private" | "partnership") => {
     setRecaptcha({ show: true, formType });
     setTimeout(() => {
       (window as any).grecaptcha?.render('recaptcha-container', {
-        sitekey: RECAPTCHA_SITE_KEY,
-        theme: 'light',
-      });
+       sitekey: RECAPTCHA_SITE_KEY,
+       theme: 'light',
+       callback: handleRecaptchaVerify,
+     });
     }, 100);
   };
 
@@ -69,12 +76,7 @@ export default function Home() {
               >
                 Cancel
               </button>
-              <button
-                onClick={handleRecaptchaVerify}
-                className="flex-1 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold"
-              >
-                Continue
-              </button>
+              
             </div>
           </div>
         </div>
