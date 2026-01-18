@@ -23,6 +23,7 @@ export default function Home() {
   const [activeForm, setActiveForm] = useState<"tour" | "enquiry" | "partnership" | null>(null);
   const [recaptcha, setRecaptcha] = useState<RecaptchaState>({ show: false, formType: null });
   const formTypeRef = useRef<"private" | "partnership" | null>(null);
+  const recaptchaRenderedRef = useRef(false);
 
 
   
@@ -52,18 +53,27 @@ const handleRecaptchaVerify = (token: string) => {
 
 
  const openRecaptchaModal = (formType: "private" | "partnership") => {
-  formTypeRef.current = formType;   // <-- store the form type safely
-
+  formTypeRef.current = formType;
   setRecaptcha({ show: true, formType });
 
   setTimeout(() => {
-    (window as any).grecaptcha?.render("recaptcha-container", {
-      sitekey: RECAPTCHA_SITE_KEY,
-      theme: "light",
-      callback: handleRecaptchaVerify,   // <-- THIS is the key fix
-    });
+    const grecaptcha = (window as any).grecaptcha;
+    if (!grecaptcha) return;
+
+    if (!recaptchaRenderedRef.current) {
+      grecaptcha.render("recaptcha-container", {
+        sitekey: RECAPTCHA_SITE_KEY,
+        theme: "light",
+        callback: handleRecaptchaVerify,
+      });
+
+      recaptchaRenderedRef.current = true;
+    } else {
+      grecaptcha.reset();
+    }
   }, 100);
 };
+
 
 
   return (
