@@ -33,14 +33,11 @@ const handleRecaptchaVerify = (token: string) => {
 
   if (!token) return;
 
-  // Read the form type from the ref (NOT from state)
   const formType = formTypeRef.current;
 
-  // Close the CAPTCHA modal
   (window as any).grecaptcha?.reset();
   setRecaptcha({ show: false, formType: null });
 
-  // Open the correct form
   if (formType === "private") {
     setActiveForm("enquiry");
   }
@@ -49,9 +46,14 @@ const handleRecaptchaVerify = (token: string) => {
     setActiveForm("partnership");
   }
 
-  // Clear the ref after use
+  const contactSection = document.getElementById("contact");
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: "smooth" });
+  }
+
   formTypeRef.current = null;
 };
+
 
 
 
