@@ -72,13 +72,21 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
               <Button
-                size="lg"
-                variant="outline"
-                className="border-primary/30 hover:bg-primary/5"
-               
-              >
-                Request Availability
-              </Button>
+  size="lg"
+  variant="outline"
+  className="border-primary/30 hover:bg-primary/5"
+  onClick={() => {
+    setActiveForm("enquiry");
+
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Request Availability
+</Button>
+
             </div>
 
             {/* Trust Indicators */}
@@ -235,11 +243,19 @@ export default function Home() {
               </p>
 
               <Button
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                
-              >
-                Request Your Dates
-              </Button>
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Request Your Dates
+</Button>
+
             </div>
 
             {/* Full Day Premium Group */}
@@ -299,11 +315,19 @@ export default function Home() {
               </p>
 
               <Button
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                
-              >
-                Request Your Dates
-              </Button>
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("enquiry");
+
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Request Your Dates
+</Button>
+
             </div>
           </div>
 
