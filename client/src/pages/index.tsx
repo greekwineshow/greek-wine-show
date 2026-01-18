@@ -53,27 +53,18 @@ const handleRecaptchaVerify = (token: string) => {
 
 
  const openRecaptchaModal = (formType: "private" | "partnership") => {
-  formTypeRef.current = formType;
+  formTypeRef.current = formType;   // <-- store the form type safely
+
   setRecaptcha({ show: true, formType });
 
   setTimeout(() => {
-    const grecaptcha = (window as any).grecaptcha;
-    if (!grecaptcha) return;
-
-    if (!recaptchaRenderedRef.current) {
-      grecaptcha.render("recaptcha-container", {
-        sitekey: RECAPTCHA_SITE_KEY,
-        theme: "light",
-        callback: handleRecaptchaVerify,
-      });
-
-      recaptchaRenderedRef.current = true;
-    } else {
-      grecaptcha.reset();
-    }
+    (window as any).grecaptcha?.render("recaptcha-container", {
+      sitekey: RECAPTCHA_SITE_KEY,
+      theme: "light",
+      callback: handleRecaptchaVerify,   // <-- THIS is the key fix
+    });
   }, 100);
 };
-
 
 
   return (
