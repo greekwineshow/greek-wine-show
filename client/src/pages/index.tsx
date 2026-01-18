@@ -28,6 +28,9 @@ export default function Home() {
 
   
 const handleRecaptchaVerify = (token: string) => {
+  console.log("TOKEN:", token);
+  console.log("FORM TYPE:", formTypeRef.current);
+
   if (!token) return;
 
   // Read the form type from the ref (NOT from state)
