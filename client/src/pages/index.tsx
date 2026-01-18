@@ -245,7 +245,7 @@ export default function Home() {
               <Button
   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
   onClick={() => {
-    setActiveForm("tour");
+    setActiveForm("enquiry");
 
     const contactSection = document.getElementById("contact");
     if (contactSection) {
