@@ -541,81 +541,87 @@ const handleRecaptchaVerify = (token: string) => {
               </h3>
 
               <form
-                className="space-y-6"
-                onSubmit={async (e) => {
-  e.preventDefault();
+  className="space-y-6"
+  onSubmit={async (e) => {
+    e.preventDefault();
 
-  const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
 
-  // Choose the correct endpoint based on the active form
-  const formEndpoint =
-    activeForm === "partnership"
-      ? "https://submit-form.com/ePGq7eilJ"   // Winery Collaboration
-      : "https://submit-form.com/BfVM6o2oO";  // Luxury Wine Tour
+    const formEndpoint =
+      activeForm === "partnership"
+        ? "https://submit-form.com/ePGq7eilJ"
+        : "https://submit-form.com/BfVM6o2oO";
 
-  const response = await fetch(formEndpoint, {
-    method: "POST",
-    body: formData,
-    headers: { Accept: "application/json" },
-  });
+    const response = await fetch(formEndpoint, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
 
-  if (response.ok) {
-    setAvailabilitySuccess(true);
-    setActiveForm(null);
-  } else {
-    alert("Something went wrong. Please try again.");
-  }
-}}
+    if (response.ok) {
+      setAvailabilitySuccess(true);
+      setActiveForm(null);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  }}
+>
 
-              >
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <input
+      type="text"
+      name="fullName"
+      placeholder="Full Name"
+      className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Email Address"
+      className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+  </div>
 
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number"
+    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+  />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
+  {activeForm === "tour" && (
+    <>
+      <input
+        type="date"
+        name="preferredDate"
+        placeholder="Preferred Date"
+        className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+      <select
+        name="groupSize"
+        className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+      >
+        <option value="">Select Group Size</option>
+        <option value="1-2">1-2 guests</option>
+        <option value="3-4">3-4 guests</option>
+        <option value="5-6">5-6 guests</option>
+        <option value="custom">Custom (contact us)</option>
+      </select>
+    </>
+  )}
 
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                />
+  <textarea
+    name="message"
+    placeholder="Message"
+    rows={5}
+    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+  />
 
-                {activeForm === "tour" && (
-                  <>
-                    <input
-                      type="date"
-                      placeholder="Preferred Date"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    <select className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                      <option value="">Select Group Size</option>
-                      <option value="1-2">1-2 guests</option>
-                      <option value="3-4">3-4 guests</option>
-                      <option value="5-6">5-6 guests</option>
-                      <option value="custom">Custom (contact us)</option>
-                    </select>
-                  </>
-                )}
+  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" size="lg">
+    Submit
+  </Button>
+</form>
 
-                <textarea
-                  placeholder="Message"
-                  rows={5}
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-
-                <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" size="lg">
-                  Submit
-                </Button>
-              </form>
 
              
             </div>
