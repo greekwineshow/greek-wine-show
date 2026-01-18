@@ -11,90 +11,24 @@ import { useState, useRef } from "react";
  * - Subtle animations on scroll and hover
  */
 
-const RECAPTCHA_SITE_KEY = "6LetWkksAAAAAOx_WzD3ndSfwMeVhuLb1P954CH0";
-
-interface RecaptchaState {
-  show: boolean;
-  formType: "private" | "partnership" | null;
-}
 
 export default function Home() {
   const [availabilitySuccess, setAvailabilitySuccess] = useState(false);
   const [activeForm, setActiveForm] = useState<"tour" | "enquiry" | "partnership" | null>(null);
-  const [recaptcha, setRecaptcha] = useState<RecaptchaState>({ show: false, formType: null });
-  const formTypeRef = useRef<"private" | "partnership" | null>(null);
-  const recaptchaRenderedRef = useRef(false);
+  
 
 
   
-const handleRecaptchaVerify = (token: string) => {
-  console.log("TOKEN:", token);
-  console.log("FORM TYPE:", formTypeRef.current);
-
-  if (!token) return;
-
-  const formType = formTypeRef.current;
-
-  (window as any).grecaptcha?.reset();
-  setRecaptcha({ show: false, formType: null });
-
-  if (formType === "private") {
-    setActiveForm("enquiry");
-  }
-
-  if (formType === "partnership") {
-    setActiveForm("partnership");
-  }
-
-  const contactSection = document.getElementById("contact");
-  if (contactSection) {
-    contactSection.scrollIntoView({ behavior: "smooth" });
-  }
-
-  formTypeRef.current = null;
-};
 
 
 
 
- const openRecaptchaModal = (formType: "private" | "partnership") => {
-  formTypeRef.current = formType;   // <-- store the form type safely
-
-  setRecaptcha({ show: true, formType });
-
-  setTimeout(() => {
-    (window as any).grecaptcha?.render("recaptcha-container", {
-      sitekey: RECAPTCHA_SITE_KEY,
-      theme: "light",
-      callback: handleRecaptchaVerify,   // <-- THIS is the key fix
-    });
-  }, 100);
-};
+ 
 
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {recaptcha.show && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-2xl">
-            <h3 className="text-xl font-semibold mb-4">Verify You are Human</h3>
-            <p className="text-foreground/70 mb-6">Please complete the reCAPTCHA below to proceed.</p>
-            <div id="recaptcha-container" className="mb-6 flex justify-center"></div>
-            <div className="flex gap-4">
-              <button
-                onClick={() => {
-                  (window as any).grecaptcha?.reset();
-                  setRecaptcha({ show: false, formType: null });
-                }}
-                className="flex-1 px-4 py-2 border border-border rounded-lg hover:bg-foreground/5 transition-colors"
-              >
-                Cancel
-              </button>
-              
-            </div>
-          </div>
-        </div>
-      )}
+      
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/20">
         <div className="container flex items-center justify-between h-16">
@@ -141,7 +75,7 @@ const handleRecaptchaVerify = (token: string) => {
                 size="lg"
                 variant="outline"
                 className="border-primary/30 hover:bg-primary/5"
-                onClick={() => openRecaptchaModal('private')}
+               
               >
                 Request Availability
               </Button>
@@ -302,7 +236,7 @@ const handleRecaptchaVerify = (token: string) => {
 
               <Button
                 className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                onClick={() => openRecaptchaModal('private')}
+                
               >
                 Request Your Dates
               </Button>
@@ -366,7 +300,7 @@ const handleRecaptchaVerify = (token: string) => {
 
               <Button
                 className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                onClick={() => openRecaptchaModal('private')}
+                
               >
                 Request Your Dates
               </Button>
@@ -559,9 +493,14 @@ const handleRecaptchaVerify = (token: string) => {
     });
 
     if (response.ok) {
-      setAvailabilitySuccess(true);
-      setActiveForm(null);
-    } else {
+  setAvailabilitySuccess(true);
+
+  // Give the request time to fully complete before unmounting the form
+  setTimeout(() => {
+    setActiveForm(null);
+  }, 500);
+}
+  else {
       alert("Something went wrong. Please try again.");
     }
   }}
@@ -640,7 +579,7 @@ const handleRecaptchaVerify = (token: string) => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => openRecaptchaModal('partnership')}
+              
             >
               Explore Partnership Opportunities
               <ArrowRight className="ml-2 w-4 h-4" />
