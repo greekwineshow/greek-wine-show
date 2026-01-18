@@ -543,23 +543,30 @@ const handleRecaptchaVerify = (token: string) => {
               <form
                 className="space-y-6"
                 onSubmit={async (e) => {
-                  e.preventDefault();
+  e.preventDefault();
 
-                  const formData = new FormData(e.currentTarget);
+  const formData = new FormData(e.currentTarget);
 
-                  const response = await fetch("https://submit-form.com/BfVM6o2oO", {
-                    method: "POST",
-                    body: formData,
-                    headers: { Accept: "application/json" },
-                  });
+  // Choose the correct endpoint based on the active form
+  const formEndpoint =
+    activeForm === "partnership"
+      ? "https://submit-form.com/ePGq7eilJ"   // Winery Collaboration
+      : "https://submit-form.com/BfVM6o2oO";  // Luxury Wine Tour
 
-                  if (response.ok) {
-                    setAvailabilitySuccess(true);
-                    setActiveForm(null);
-                  } else {
-                    alert("Something went wrong. Please try again.");
-                  }
-                }}
+  const response = await fetch(formEndpoint, {
+    method: "POST",
+    body: formData,
+    headers: { Accept: "application/json" },
+  });
+
+  if (response.ok) {
+    setAvailabilitySuccess(true);
+    setActiveForm(null);
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+}}
+
               >
 
 
@@ -610,16 +617,7 @@ const handleRecaptchaVerify = (token: string) => {
                 </Button>
               </form>
 
-              <div className="mt-8 pt-8 border-t border-border space-y-3 text-sm text-foreground/70">
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-primary" />
-                  <span>+30 (XXX) XXX-XXXX</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-primary" />
-                  <span>hello@greekwineshow.com</span>
-                </div>
-              </div>
+             
             </div>
           )}
         </div>
