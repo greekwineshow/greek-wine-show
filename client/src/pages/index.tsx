@@ -1,33 +1,48 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Wine, Users, MapPin, Calendar, Mail, Phone } from "lucide-react";
-import { useState, useRef } from "react";
-
-/**
- * Design Philosophy: Editorial Minimalism with Mediterranean Warmth
- * - Serif headlines (Playfair Display) for editorial authority
- * - Asymmetric layouts with generous whitespace
- * - Warm cream background with deep charcoal text
- * - Gold dividers and Mediterranean color accents
- * - Subtle animations on scroll and hover
- */
-
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
   const [availabilitySuccess, setAvailabilitySuccess] = useState(false);
   const [activeForm, setActiveForm] = useState<"tour" | "enquiry" | "partnership" | null>(null);
-  
+
+  // Detect redirect from Web3Forms and show success message
+  useEffect(() => {
+    if (window.location.hash === "#success") {
+      setAvailabilitySuccess(true);
+      setActiveForm(null);
+    }
+  }, []);
+
+useEffect(() => {
+  if (availabilitySuccess) {
+    const el = document.getElementById("success-message");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+}, [availabilitySuccess]);
 
 
-  
+  // ⭐ reCAPTCHA state + listener (correct placement)
+  const [isVerified, setIsVerified] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
 
+  useEffect(() => {
+    function handleSuccess(e: any) {
+      setIsVerified(true);
+      setRecaptchaToken(e.detail);
+    }
 
+    window.addEventListener("recaptcha-success", handleSuccess);
+    return () => window.removeEventListener("recaptcha-success", handleSuccess);
+  }, []);
 
-
- 
-
+useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grecaptcha && document.getElementById("recaptcha-container") ) { (window as any).grecaptcha.render("recaptcha-container"); } }, 200); } }, [activeForm]); 
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/20">
@@ -478,7 +493,10 @@ export default function Home() {
           {/* Form Section */}
 
 {availabilitySuccess && !activeForm && (
-  <div className="mt-12 rounded-xl border border-border bg-background p-8 text-center">
+  <div
+  id="success-message"
+  className="mt-12 rounded-xl border border-border bg-background p-8 text-center"
+>
     <h3 className="text-xl font-semibold">
       Thank you for your request
     </h3>
@@ -498,50 +516,65 @@ export default function Home() {
                 {activeForm === "partnership" && "Partnership Inquiry"}
               </h3>
 
-              <form
+
+           <form
   className="space-y-6"
-  onSubmit={async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-
-    const formEndpoint =
-      activeForm === "partnership"
-        ? "https://submit-form.com/ePGq7eilJ"
-        : "https://submit-form.com/BfVM6o2oO";
-
-    const response = await fetch(formEndpoint, {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" },
-    });
-
-    if (response.ok) {
-  setAvailabilitySuccess(true);
-
-  // Give the request time to fully complete before unmounting the form
-  setTimeout(() => {
-    setActiveForm(null);
-  }, 500);
-}
-  else {
-      alert("Something went wrong. Please try again.");
-    }
-  }}
+  action="https://api.web3forms.com/submit"
+  method="POST"
 >
 
+  {/* Required hidden fields */}
+  <input
+    type="hidden"
+    name="access_key"
+    value="e1ffa3e7-01b5-498b-8c05-40d9a76527a3"
+  />
+
+  <input
+    type="hidden"
+    name="subject"
+    value={
+      activeForm === "partnership"
+        ? "New Partnership Enquiry"
+        : activeForm === "tour"
+        ? "New Tour Booking Request"
+        : "New General Enquiry"
+    }
+  />
+
+  <input
+    type="hidden"
+    name="autoresponse"
+    value="Thank you for your message. We have received your enquiry and will reply shortly."
+  />
+
+  <input
+    type="hidden"
+    name="from_name"
+    value="Greek Wine Show"
+  />
+
+  <input
+    type="hidden"
+    name="redirect"
+    value="http://localhost:3000/#success"
+  />
+
+  {/* Visible fields */}
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     <input
       type="text"
       name="fullName"
       placeholder="Full Name"
       className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+      required
     />
     <input
       type="email"
       name="email"
       placeholder="Email Address"
       className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+      required
     />
   </div>
 
@@ -550,6 +583,7 @@ export default function Home() {
     name="phone"
     placeholder="Phone Number"
     className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    required
   />
 
   {activeForm === "tour" && (
@@ -580,10 +614,15 @@ export default function Home() {
     className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
   />
 
-  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" size="lg">
+  <Button
+    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+    size="lg"
+  >
     Submit
   </Button>
 </form>
+
+
 
 
              
