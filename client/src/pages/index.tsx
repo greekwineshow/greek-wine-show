@@ -557,7 +557,7 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
   <input
     type="hidden"
     name="redirect"
-    value="https://greek-wine-show.vercel.app/#success"
+    value="https://greekwineshow.com/#success"
   />
 
   {/* Visible fields */}
