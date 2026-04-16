@@ -60,11 +60,11 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-24 pb-20 relative overflow-hidden">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
+          <div className="space-y-6">
+            <div className="space-y-3">
               <p className="text-primary text-sm font-semibold uppercase tracking-widest">
                 Curated Luxury Wine Experiences
               </p>
@@ -72,21 +72,29 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
                 Discover Greece Through Wine
               </h1>
               <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
-                The Greek Wine Show curates exclusive wine experiences that connect you with winemakers, terroir, and the stories behind Greece's finest wines. Small groups, insider access, editorial authority.
+                The Greek Wine Show curates exclusive wine experiences that connect you with winemakers. Small‑group and private journeys crafted with expertise, deep regional knowledge and the warm hospitality that defines Greek winemaking tradition.
               </p>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground"
-                onClick={() => window.open('https://calendly.com/greekwineshow/30min', '_blank')}
-              >
-                Reserve Your Experience
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+             
+<Button
+  size="lg"
+  className="bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Request a Date
+  <ArrowRight className="ml-2 w-4 h-4" />
+</Button>
+
+<Button
   size="lg"
   variant="outline"
   className="border-primary/30 hover:bg-primary/5"
@@ -99,7 +107,7 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
     }
   }}
 >
-  Request Availability
+  Enquire Now
 </Button>
 
             </div>
@@ -132,15 +140,12 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="mt-20 flex justify-center">
-          <div className="w-12 h-px bg-primary/40" />
-        </div>
+       
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white/50">
-        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="pt-16 pb-16 bg-white/50">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Image */}
           <div className="relative h-96 order-2 lg:order-1">
             <img
@@ -151,34 +156,34 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
           </div>
 
           {/* Right: Content */}
-          <div className="space-y-6 order-1 lg:order-2">
+          <div className="space-y-5 order-1 lg:order-2">
             <h2 className="leading-tight">About The Greek Wine Show</h2>
             <p className="text-lg text-foreground/70 leading-relaxed">
-              The Greek Wine Show is a media platform dedicated to Greek wine culture, its people, and terroir. Through interviews, episodes, and storytelling, we celebrate the heritage and innovation of Greek winemakers.
+              The Greek Wine Show is a storytelling‑driven platform dedicated to Greece’s wine regions, traditions and winemakers. Through interviews, editorial features and on‑location episodes, we document the families, histories and terroirs shaping modern Greek wine.
             </p>
             <p className="text-lg text-foreground/70 leading-relaxed">
-              As curator and trusted authority, we design wine experiences with insider access—connecting serious wine lovers and affluent travelers with the stories, flavors, and landscapes that define Greek wine excellence.
+              Our deep relationships with multigenerational, family‑run wineries allow us to create experiences that go far beyond standard tastings. Guests meet the people behind the labels, hear their stories and experience the warmth of genuine Greek hospitality—something no mass‑market tour can replicate.
             </p>
-            <div className="space-y-4 pt-4">
+            <div className="space-y-3 pt-3">
               <div className="flex gap-4">
                 <Wine className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-semibold">Editorial Authority</p>
-                  <p className="text-sm text-foreground/60">Trusted voice in Greek wine culture</p>
+                  <p className="font-semibold">Genuine Hospitality</p>
+                  <p className="text-sm text-foreground/60">Warm Greek hospitality and genuine winemaker interaction</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold">Exclusive Access</p>
-                  <p className="text-sm text-foreground/60">Direct connections with winemakers</p>
+                  <p className="text-sm text-foreground/60">Access to multigenerational, family‑run wineries</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold">Curated Experiences</p>
-                  <p className="text-sm text-foreground/60">Quality over quantity, small groups</p>
+                  <p className="text-sm text-foreground/60">Small groups and private experiences for deeper connection</p>
                 </div>
               </div>
             </div>
@@ -186,13 +191,69 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="flex justify-center py-12">
-        <div className="w-12 h-px bg-primary/40" />
+
+<section className="pt-16 pb-16 bg-white relative overflow-hidden">
+  {/* Subtle texture background */}
+  <div className="absolute inset-0 bg-[url('/textures/noise-light.png')] opacity-20 pointer-events-none"></div>
+
+  <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      {/* Text Column with Soft Gradient */}
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent rounded-lg -z-10"></div>
+
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-semibold">
+              Why Choose Us
+            </h2>
+            <div className="w-16 h-1 bg-primary mt-3 mb-6 rounded-full"></div>
+          </div>
+
+          <ul className="space-y-5 text-lg leading-relaxed">
+            <li className="flex items-start">
+              <span className="text-primary mt-1 mr-3">▹</span>
+              <span>Access to multigenerational, family‑run wineries you won’t find in guidebooks.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mt-1 mr-3">▹</span>
+              <span>Small‑group or private experiences for deeper connection and conversation.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mt-1 mr-3">▹</span>
+              <span>Warm, genuine Greek hospitality from the people who make the wines.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-primary mt-1 mr-3">▹</span>
+              <span>Authentic, non‑touristic itineraries curated around stories, tradition, and terroir.</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
+      {/* Image Column with Vignette */}
+      <div className="relative">
+        <img 
+          src="/images/Greek wine tour experience traditional curated tours athens thessaloniki.png" 
+          alt="Family-run Greek winery" 
+          className="rounded-lg shadow-xl w-full object-cover"
+        />
+
+        {/* Subtle vignette overlay */}
+        <div className="absolute inset-0 rounded-lg pointer-events-none bg-gradient-to-b from-black/10 via-transparent to-black/10"></div>
+
+        {/* Subtle frame */}
+        <div className="absolute -inset-3 border border-primary/20 rounded-lg -z-10"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
       {/* Luxury Wine Experiences Section */}
-      <section id="experiences" className="py-20">
+      <section id="experiences" className="py-14">
         <div className="container">
           <div className="max-w-3xl mx-0 mb-16">
             <h2 className="leading-tight mb-6">Luxury Wine Experiences</h2>
@@ -207,7 +268,8 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
             <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <Calendar className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-2xl mb-2">Half Day Athens Premium Wine Escape</h3>
+                <h3 className="text-2xl mb-2">The Vineyard Introduction</h3>
+                <p className="text-sm text-gray-500 mb-4">Half‑Day • 4–6 hours</p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -227,18 +289,25 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
               </p>
 
               <Button
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                onClick={() => window.open('https://calendly.com/greekwineshow/30min', '_blank')}
-              >
-                Reserve a Spot
-              </Button>
-            </div>
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Request a Date
+</Button>
+</div>
 
             {/* Half Day Private Experience */}
             <div className="bg-accent/10 rounded-lg p-8 border-2 border-accent hover:bg-accent/15 transition-colors">
               <div className="mb-6">
                 <Users className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-2xl mb-2">Half Day Private Wine Experience</h3>
+                <h3 className="text-2xl mb-2">The Private Vineyard Escape</h3>
+                <p className="text-sm text-gray-500 mb-4">Half‑Day • 4–6 hours • Private</p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -254,22 +323,22 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
               </div>
 
               <p className="text-foreground/70 mb-6">
-                Exclusive private access with personalized storytelling, flexible timing, and bespoke wine selections curated to your preferences.
+                Exclusive private access with personalized storytelling, flexible timing and bespoke wine selections curated to your preferences.
               </p>
 
-              <Button
+             <Button
   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
   onClick={() => {
-    setActiveForm("enquiry");
-
+    setActiveForm("tour");
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   }}
 >
-  Request Your Dates
+  Request a Date
 </Button>
+
 
             </div>
 
@@ -277,7 +346,8 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
             <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="mb-6">
                 <Calendar className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-2xl mb-2">Full Day Athens Premium Vineyard Escape</h3>
+                <h3 className="text-2xl mb-2">The Grand Terroir Journey</h3>
+                <p className="text-sm text-gray-500 mb-4">Full‑Day • 8–10 hours</p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -298,18 +368,26 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
               </p>
 
               <Button
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                onClick={() => window.open('https://calendly.com/greekwineshow/30min', '_blank')}
-              >
-                Reserve a Spot
-              </Button>
-            </div>
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Request a Date
+</Button>
+</div>
+
 
             {/* Full Day Private Experience */}
             <div className="bg-accent/10 rounded-lg p-8 border-2 border-accent hover:bg-accent/15 transition-colors">
               <div className="mb-6">
                 <Users className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-2xl mb-2">Full Day Private Vineyard Experience</h3>
+                <h3 className="text-2xl mb-2">The Private Estate Immersion</h3>
+                <p className="text-sm text-gray-500 mb-4">Full‑Day • 8–10 hours • Private</p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -332,16 +410,16 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
               <Button
   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
   onClick={() => {
-    setActiveForm("enquiry");
-
+    setActiveForm("tour");
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   }}
 >
-  Request Your Dates
+  Request a Date
 </Button>
+
 
             </div>
           </div>
@@ -364,148 +442,195 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="flex justify-center py-12">
-        <div className="w-12 h-px bg-primary/40" />
-      </div>
+    
 
-      {/* Wine Tasting Image Section */}
-      <section className="py-0">
-        <div className="container">
-          <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl">
-            <img
-              src="/images/wine-tasting-experience.jpg"
-              alt="Premium wine tasting setup"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent flex items-center">
-              <div className="max-w-xl pl-8">
-                <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-2">
-                  Curated Experiences
-                </p>
-                <h2 className="text-white leading-tight">
-                  Quality Over Quantity
-                </h2>
-                <p className="text-white/80 mt-4 text-lg">
-                  Every experience is designed to create meaningful connections with Greek wine culture and the people who shape it.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    {/* Testimonials Section */}
+<section className="py-14 bg-white/50">
+  <div className="container">
+    <h2 
+      className="text-center mb-12 leading-tight"
+      style={{ fontFamily: "'Playfair Display', serif" }}
+    >
+      What Our Guests Say
+    </h2>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white/50">
-        <div className="container">
-          <h2 className="text-center mb-16 leading-tight">What Our Guests Say</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "An unforgettable journey into Greek wine culture. The access to winemakers was exceptional.",
-                author: "Sarah M.",
-                role: "Wine Collector, London"
-              },
-              {
-                quote: "The storytelling and curation elevated this beyond a typical wine tour. Truly editorial excellence.",
-                author: "James P.",
-                role: "Sommelier, New York"
-              },
-              {
-                quote: "Small groups, authentic experiences, and genuine passion for Greek wine. Highly recommend.",
-                author: "Elena K.",
-                role: "Travel Enthusiast, Paris"
-              }
-            ].map((testimonial, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow">
-                <p className="text-foreground/70 italic mb-6">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-foreground/60">{testimonial.role}</p>
-                </div>
-              </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          quote: "Meeting the winemaker’s family and tasting wines in their courtyard was unforgettable. This felt like being welcomed into someone’s home, not a tour.",
+          author: "Sarah M.",
+          role: "Wine Collector, London"
+        },
+        {
+          quote: "The access Elias arranged was extraordinary. We visited small, family‑run estates we would never have found on our own.",
+          author: "James P.",
+          role: "Sommelier, New York"
+        },
+        {
+          quote: "This was the most authentic wine experience we’ve had in Europe. Intimate, personal and full of stories you can’t get anywhere else.",
+          author: "Elena K.",
+          role: "Travel Enthusiast, Sydney"
+        }
+      ].map((testimonial, idx) => (
+        <div 
+          key={idx} 
+          className="bg-white rounded-lg p-8 shadow-md border border-primary/10 hover:shadow-xl hover:-translate-y-1 transition-all"
+        >
+          {/* Stars */}
+          <div className="flex mb-4">
+            {Array(5).fill(0).map((_, i) => (
+              <svg 
+                key={i}
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 20 20" 
+                fill="currentColor" 
+                className="w-5 h-5 text-primary"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.385 2.46a1 1 0 00-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.54 1.118l-3.385-2.46a1 1 0 00-1.175 0l-3.385 2.46c-.784.57-1.838-.196-1.539-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.045 9.394c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.967z" />
+              </svg>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Divider */}
-      <div className="flex justify-center py-12">
-        <div className="w-12 h-px bg-primary/40" />
+          {/* Quote */}
+          <p className="text-foreground/70 italic mb-6">
+            "{testimonial.quote}"
+          </p>
+
+          {/* Author */}
+          <div>
+            <p className="font-semibold text-foreground">{testimonial.author}</p>
+            <p className="text-sm text-foreground/60">{testimonial.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+{/* Reassurance Image Section */}
+<section className="py-0">
+  <div className="container">
+    <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl">
+      <img
+        src="/images/wine-tasting-experience.jpg"
+        alt="Premium wine tasting setup"
+        className="w-full h-full object-cover"
+      />
+
+      {/* Soft dark vignette behind text */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent flex items-center">
+        <div className="max-w-xl pl-8">
+
+          <h2
+            className="text-white text-3xl md:text-4xl font-semibold leading-tight mb-4"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            You're in Good Hands
+          </h2>
+
+          <p className="text-white/90 text-lg mb-6">
+            Personal replies within 24 hours. No payment required to enquire.
+            Small groups of 4–6 guests. Fully licensed and insured.
+          </p>
+
+          <a
+            href="#contact"
+            className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-lg text-lg font-medium hover:bg-primary/90 transition-colors"
+          >
+            Enquire With Confidence
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* Divider */}
+<div className="flex justify-center py-6">
+  <div className="w-12 h-px bg-primary/40" />
+</div>
+
+{/* Contact & Booking Section */}
+<section id="contact" className="pt-12 pb-20 bg-white/60 backdrop-blur-sm">
+  <div className="container">
+
+    {/* Section Heading */}
+    <h2 className="text-center mb-10 leading-tight">
+      Ready to Experience Greek Wine?
+    </h2>
+
+    {/* Card Options */}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+      
+      {/* Tour Reservation */}
+      <div
+        className={`rounded-lg p-6 cursor-pointer transition-all ${
+          activeForm === "tour"
+            ? "bg-accent/10 border-2 border-accent"
+            : "bg-white border border-border hover:border-primary/50"
+        }`}
+        onClick={() => setActiveForm("tour")}
+      >
+        <Calendar className="w-8 h-8 text-primary mb-3" />
+        <h3 className="text-xl font-semibold mb-1">Tour Reservation</h3>
+        <p className="text-foreground/70 text-sm">
+          Reserve your wine experience or request availability for specific dates.
+        </p>
       </div>
 
-      {/* Contact & Booking Section */}
-      <section id="contact" className="py-20">
-        <div className="container">
-          <h2 className="text-center mb-16 leading-tight">Ready to Experience Greek Wine?</h2>
+      {/* General Enquiries */}
+      <div
+        className={`rounded-lg p-6 cursor-pointer transition-all ${
+          activeForm === "enquiry"
+            ? "bg-accent/10 border-2 border-accent"
+            : "bg-white border border-border hover:border-primary/50"
+        }`}
+        onClick={() => setActiveForm("enquiry")}
+      >
+        <Mail className="w-8 h-8 text-primary mb-3" />
+        <h3 className="text-xl font-semibold mb-1">General Enquiries</h3>
+        <p className="text-foreground/70 text-sm">
+          Questions about our experiences, media features, or editorial content.
+        </p>
+      </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {/* Tour Reservation */}
-            <div
-              className={`rounded-lg p-8 cursor-pointer transition-all ${
-                activeForm === "tour"
-                  ? "bg-accent/10 border-2 border-accent"
-                  : "bg-white border border-border hover:border-primary/50"
-              }`}
-              onClick={() => setActiveForm("tour")}
-            >
-              <Calendar className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Tour Reservation</h3>
-              <p className="text-foreground/70 text-sm">
-                Reserve your wine experience or request availability for specific dates.
-              </p>
-            </div>
+      {/* Partnerships */}
+      <div
+        className={`rounded-lg p-6 cursor-pointer transition-all ${
+          activeForm === "partnership"
+            ? "bg-accent/10 border-2 border-accent"
+            : "bg-white border border-border hover:border-primary/50"
+        }`}
+        onClick={() => setActiveForm("partnership")}
+      >
+        <Wine className="w-8 h-8 text-primary mb-3" />
+        <h3 className="text-xl font-semibold mb-1">Partnerships</h3>
+        <p className="text-foreground/70 text-sm">
+          For wineries, media collaborations and professional partnerships.
+        </p>
+      </div>
+    </div>
 
-            {/* General Enquiries */}
-            <div
-              className={`rounded-lg p-8 cursor-pointer transition-all ${
-                activeForm === "enquiry"
-                  ? "bg-accent/10 border-2 border-accent"
-                  : "bg-white border border-border hover:border-primary/50"
-              }`}
-              onClick={() => setActiveForm("enquiry")}
-            >
-              <Mail className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">General Enquiries</h3>
-              <p className="text-foreground/70 text-sm">
-                Questions about our experiences, media features, or editorial content.
-              </p>
-            </div>
+    {/* Success Message */}
+    {availabilitySuccess && !activeForm && (
+      <div
+        id="success-message"
+        className="mt-8 rounded-xl border border-border bg-background p-8 text-center"
+      >
+        <h3 className="text-xl font-semibold">
+          Thank you for your request
+        </h3>
+        <p className="mt-3 text-muted-foreground">
+          We’ve received your tour availability enquiry and will be in touch shortly
+          with next steps.
+        </p>
+      </div>
+    )}
 
-            {/* Partnerships */}
-            <div
-              className={`rounded-lg p-8 cursor-pointer transition-all ${
-                activeForm === "partnership"
-                  ? "bg-accent/10 border-2 border-accent"
-                  : "bg-white border border-border hover:border-primary/50"
-              }`}
-              onClick={() => setActiveForm("partnership")}
-            >
-              <Wine className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Partnerships</h3>
-              <p className="text-foreground/70 text-sm">
-                For wineries, media collaborations, and professional partnerships.
-              </p>
-            </div>
-          </div>
-
-          {/* Form Section */}
-
-{availabilitySuccess && !activeForm && (
-  <div
-  id="success-message"
-  className="mt-12 rounded-xl border border-border bg-background p-8 text-center"
->
-    <h3 className="text-xl font-semibold">
-      Thank you for your request
-    </h3>
-    <p className="mt-3 text-muted-foreground">
-      We’ve received your tour availability enquiry and will be in touch shortly
-      with next steps.
-    </p>
-  </div>
-)}
+    {/* Form Section renders here */}
 
 
           {activeForm && (
@@ -578,13 +703,86 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
     />
   </div>
 
+{/* Phone Number with Country Selector */}
+<div className="flex gap-3">
+  {/* Country Code Dropdown */}
+  <select
+    name="countryCode"
+    className="w-36 p-3 border rounded-lg bg-white text-foreground"
+    defaultValue="+30"
+  >
+    {[
+      { flag: "🇺🇸", code: "+1", country: "USA" },
+      { flag: "🇨🇦", code: "+1", country: "CAN" },
+      { flag: "🇬🇷", code: "+30", country: "GRE" },
+      { flag: "🇬🇧", code: "+44", country: "GBR" },
+      { flag: "🇫🇷", code: "+33", country: "FRA" },
+      { flag: "🇩🇪", code: "+49", country: "DEU" },
+      { flag: "🇮🇹", code: "+39", country: "ITA" },
+      { flag: "🇪🇸", code: "+34", country: "ESP" },
+      { flag: "🇵🇹", code: "+351", country: "PRT" },
+      { flag: "🇳🇱", code: "+31", country: "NLD" },
+      { flag: "🇧🇪", code: "+32", country: "BEL" },
+      { flag: "🇨🇭", code: "+41", country: "CHE" },
+      { flag: "🇦🇹", code: "+43", country: "AUT" },
+      { flag: "🇸🇪", code: "+46", country: "SWE" },
+      { flag: "🇳🇴", code: "+47", country: "NOR" },
+      { flag: "🇩🇰", code: "+45", country: "DNK" },
+      { flag: "🇫🇮", code: "+358", country: "FIN" },
+      { flag: "🇮🇪", code: "+353", country: "IRL" },
+      { flag: "🇵🇱", code: "+48", country: "POL" },
+      { flag: "🇨🇿", code: "+420", country: "CZE" },
+      { flag: "🇸🇰", code: "+421", country: "SVK" },
+      { flag: "🇭🇺", code: "+36", country: "HUN" },
+      { flag: "🇷🇴", code: "+40", country: "ROU" },
+      { flag: "🇸🇮", code: "+386", country: "SVN" },
+      { flag: "🇭🇷", code: "+385", country: "HRV" },
+      { flag: "🇹🇷", code: "+90", country: "TUR" },
+      { flag: "🇮🇱", code: "+972", country: "ISR" },
+      { flag: "🇦🇪", code: "+971", country: "ARE" },
+      { flag: "🇶🇦", code: "+974", country: "QAT" },
+      { flag: "🇸🇦", code: "+966", country: "SAU" },
+      { flag: "🇮🇳", code: "+91", country: "IND" },
+      { flag: "🇯🇵", code: "+81", country: "JPN" },
+      { flag: "🇰🇷", code: "+82", country: "KOR" },
+      { flag: "🇨🇳", code: "+86", country: "CHN" },
+      { flag: "🇭🇰", code: "+852", country: "HKG" },
+      { flag: "🇲🇴", code: "+853", country: "MAC" },
+      { flag: "🇸🇬", code: "+65", country: "SGP" },
+      { flag: "🇲🇾", code: "+60", country: "MYS" },
+      { flag: "🇮🇩", code: "+62", country: "IDN" },
+      { flag: "🇵🇭", code: "+63", country: "PHL" },
+      { flag: "🇹🇭", code: "+66", country: "THA" },
+      { flag: "🇻🇳", code: "+84", country: "VNM" },
+      { flag: "🇦🇺", code: "+61", country: "AUS" },
+      { flag: "🇳🇿", code: "+64", country: "NZL" },
+      { flag: "🇧🇷", code: "+55", country: "BRA" },
+      { flag: "🇦🇷", code: "+54", country: "ARG" },
+      { flag: "🇨🇱", code: "+56", country: "CHL" },
+      { flag: "🇨🇴", code: "+57", country: "COL" },
+      { flag: "🇵🇪", code: "+51", country: "PER" },
+      { flag: "🇲🇽", code: "+52", country: "MEX" },
+      { flag: "🇿🇦", code: "+27", country: "ZAF" },
+      { flag: "🇳🇬", code: "+234", country: "NGA" },
+      { flag: "🇰🇪", code: "+254", country: "KEN" },
+      { flag: "🇪🇬", code: "+20", country: "EGY" },
+    ].map((item, idx) => (
+      <option key={idx} value={item.code}>
+        {item.flag} {item.country} {item.code}
+      </option>
+    ))}
+  </select>
+
+  {/* Phone Number Input */}
   <input
     type="tel"
     name="phone"
     placeholder="Phone Number"
-    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-    required
+    className="flex-1 p-3 border rounded-lg"
   />
+</div>
+
+
 
   {activeForm === "tour" && (
     <>
@@ -623,33 +821,89 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
 </form>
 
 
-
-
              
             </div>
           )}
         </div>
       </section>
+{/* Partners Section */}
+<section id="partners" className="pt-16 pb-16 bg-white/60 backdrop-blur-sm relative overflow-hidden">
 
-      {/* Partners Section */}
-      <section id="partners" className="py-20 bg-white/50">
-        <div className="container">
-          <div className="max-w-3xl">
-            <h2 className="leading-tight mb-6">For Wineries & Partners</h2>
-            <p className="text-lg text-foreground/70 mb-8">
-              The Greek Wine Show collaborates with premium wineries, media outlets, and travel professionals. If you're interested in featuring your winery, partnering on editorial content, or joining our curated network—we'd love to hear from you.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              
-            >
-              Explore Partnership Opportunities
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
+  {/* Subtle texture background */}
+  <div className="absolute inset-0 bg-[url('/textures/noise-light.png')] opacity-20 pointer-events-none"></div>
+
+  <div className="container relative z-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      {/* Left Column — Text */}
+      <div>
+        <h2 className="leading-tight text-3xl font-semibold">
+          For Wineries & Partners
+        </h2>
+        <div className="w-16 h-1 bg-primary mt-3 mb-6 rounded-full"></div>
+
+        <p className="text-lg text-foreground/70 leading-relaxed mb-8">
+          The Greek Wine Show collaborates with premium wineries, wine bars, media outlets and travel professionals. 
+          We offer several partnership pathways depending on your goals:
+        </p>
+
+        <ul className="space-y-4 text-foreground/80 mb-10">
+          <li className="flex items-start">
+            <span className="text-primary mr-3 mt-1">▹</span>
+            <span><strong>Join our curated wine experiences</strong> — feature your winery as part of our private and small‑group tours.</span>
+          </li>
+
+          <li className="flex items-start">
+            <span className="text-primary mr-3 mt-1">▹</span>
+            <span><strong>Videography, photography & editorial features</strong> — showcase your story through cinematic episodes, interviews and professional content production.</span>
+          </li>
+
+          <li className="flex items-start">
+            <span className="text-primary mr-3 mt-1">▹</span>
+            <span><strong>Sponsorships & brand collaborations</strong> — partner with The Greek Wine Show as a sponsor or strategic collaborator.</span>
+          </li>
+        </ul>
+
+        {/* CTA — triggers Partnerships form */}
+        <Button
+          size="lg"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md"
+          onClick={() => {
+            // Select the Partnerships form
+            setActiveForm("partnership");
+
+            // Scroll to the forms section
+            const contactSection = document.getElementById("contact");
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          Explore Partnership Opportunities
+          <ArrowRight className="ml-2 w-4 h-4" />
+        </Button>
+      </div>
+
+      {/* Right Column — Visual Block */}
+      <div className="relative h-80 rounded-lg overflow-hidden">
+        <img
+          src="/images/wineries greek wine show tours experiences partnerships collaborations sponsorships vidoegraphy photography business opportunities.jpg" // Replace with your actual image
+          alt="Winery partnership"
+          className="w-full h-full object-cover"
+        />
+
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none"></div>
+
+        {/* Frame */}
+        <div className="absolute -inset-3 border border-primary/20 rounded-lg -z-10"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
       {/* Footer */}
       <footer className="bg-foreground/5 border-t border-primary/20 py-12">
@@ -682,8 +936,8 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
             <div>
               <p className="font-semibold mb-4">Connect</p>
               <ul className="space-y-2 text-sm text-foreground/60">
-                <li><a href="#" className="hover:text-primary transition-colors">Instagram</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">YouTube</a></li>
+                <li><a href="https://www.instagram.com/greekwineshow" target="_blank" rel="noopener noreferrer"  className="hover:text-primary transition-colors">Instagram</a></li>
+                <li><a href="https://www.youtube.com/@greekwineshow" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">YouTube</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Newsletter</a></li>
               </ul>
             </div>
