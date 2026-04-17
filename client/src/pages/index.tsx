@@ -316,7 +316,7 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
                   <p className="text-lg font-semibold mt-1">For Couples, Friends, or Families</p>
                 </div>
                 <div className="border-l-2 border-accent pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €750 (up to 4 guests)</p>
+                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (up to 4 guests)</p>
                   <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€80 per person</p>
                   <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
                 </div>
@@ -359,7 +359,7 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
                   <p className="text-sm"><span className="font-semibold">Duration:</span> 7–8 hours</p>
                   <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
                   <p className="text-sm"><span className="font-semibold">Owner/Winemaker:</span> Direct involvement</p>
-                  <p className="text-sm"><span className="font-semibold">Price:</span> €290 per person</p>
+                  <p className="text-sm"><span className="font-semibold">Price:</span> €250 per person</p>
                 </div>
               </div>
 
@@ -944,7 +944,7 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
           </div>
 
           <div className="border-t border-primary/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-            <p>&copy; 2024 The Greek Wine Show. All rights reserved.</p>
+            <p>&copy; 2026 The Greek Wine Show. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
