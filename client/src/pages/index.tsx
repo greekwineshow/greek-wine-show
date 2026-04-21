@@ -1,9 +1,5 @@
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
 import { ArrowRight, Wine, Users, MapPin, Calendar, Mail, Phone, Key, Compass } from "lucide-react";
-=======
-import { ArrowRight, Wine, Users, MapPin, Calendar, Mail, Phone } from "lucide-react";
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
 import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
@@ -72,7 +68,6 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
               <p className="text-primary text-sm font-semibold uppercase tracking-widest">
                 Curated Luxury Wine Experiences
               </p>
-<<<<<<< HEAD
               <h1 className="text-3xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
   Private Luxury Wine Experiences in Greece
 </h1>
@@ -80,13 +75,6 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
               <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
                 Greece is a land shaped by wine — ancient vineyards, volcanic soils and a culture that has celebrated the craft for thousands of years. At The Greek Wine Show, we curate premium, story‑driven wine experiences for travelers seeking authenticity, depth and a true connection to Greek wine culture.<br /><br />
 Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine Experience across iconic regions or a Greece wine tasting tour tailored to your tastes, our approach blends cinematic storytelling with world‑class hospitality.
-=======
-              <h1 className="leading-tight">
-                Discover Greece Through Wine
-              </h1>
-              <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
-                The Greek Wine Show curates exclusive wine experiences that connect you with winemakers. Small‑group and private journeys crafted with expertise, deep regional knowledge and the warm hospitality that defines Greek winemaking tradition.
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
               </p>
             </div>
 
@@ -126,25 +114,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
 
             </div>
 
-<<<<<<< HEAD
-
-=======
-            {/* Trust Indicators */}
-            <div className="pt-8 border-t border-primary/20 grid grid-cols-3 gap-6">
-              <div>
-                <p className="text-2xl font-bold text-primary">50+</p>
-                <p className="text-sm text-foreground/60">Winery Partners</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-primary">1000+</p>
-                <p className="text-sm text-foreground/60">Guests Hosted</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-primary">15+</p>
-                <p className="text-sm text-foreground/60">Regions Covered</p>
-              </div>
-            </div>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
           </div>
 
           {/* Right: Hero Image */}
@@ -253,11 +222,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
       {/* Image Column with Vignette */}
       <div className="relative">
         <img 
-<<<<<<< HEAD
           src="/images/wine tours athens greece curated tours wineries.png" 
-=======
-          src="/images/Greek wine tour experience traditional curated tours athens thessaloniki.png" 
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
           alt="Family-run Greek winery" 
           className="rounded-lg shadow-xl w-full object-cover"
         />
@@ -274,7 +239,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
 </section>
 
 
-<<<<<<< HEAD
      {/* Luxury Wine Experiences Section */}
 <section id="experiences" className="py-14">
   <div className="container">
@@ -307,17 +271,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
 
     </div>
 
-=======
-      {/* Luxury Wine Experiences Section */}
-      <section id="experiences" className="py-14">
-        <div className="container">
-          <div className="max-w-3xl mx-0 mb-16">
-            <h2 className="leading-tight mb-6">Luxury Wine Experiences</h2>
-            <p className="text-lg text-foreground/70">
-              Each experience is meticulously curated to showcase Greek wine excellence. We prioritize storytelling, quality, and authentic connections with winemakers—never mass tourism.
-            </p>
-          </div>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
 
           {/* Experience Cards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -332,24 +285,16 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
               <div className="space-y-4 mb-8">
                 <div>
                   <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
-<<<<<<< HEAD
                   <p className="text-lg font-semibold mt-1">2 Winery Visits with Wine Tastings and Pairings</p>
                 </div>
                 <div className="border-l-2 border-primary pl-4 space-y-2">
                   <p className="text-sm"><span className="font-semibold">Duration:</span> 4–6 hours</p>
-=======
-                  <p className="text-lg font-semibold mt-1">1 Winery + 1 High-End Wine Bar OR 2 Wineries</p>
-                </div>
-                <div className="border-l-2 border-primary pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Duration:</span> 4–5 hours</p>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
                   <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
                   <p className="text-sm"><span className="font-semibold">Price:</span> Starting from €180 per person</p>
                 </div>
               </div>
 
               <p className="text-foreground/70 mb-6">
-<<<<<<< HEAD
                
 
 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -365,9 +310,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
   </ul>
 
 
-=======
-                Perfect for travelers seeking authentic wine culture with curated storytelling and insider access to premium venues.
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
               </p>
 
               <Button
@@ -395,25 +337,16 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
               <div className="space-y-4 mb-8">
                 <div>
                   <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
-<<<<<<< HEAD
                   <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
                 </div>
                 <div className="border-l-2 border-accent pl-4 space-y-2">
                   <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (up to 4 guests)</p>
                   <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
-=======
-                  <p className="text-lg font-semibold mt-1">For Couples, Friends, or Families</p>
-                </div>
-                <div className="border-l-2 border-accent pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (up to 4 guests)</p>
-                  <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€80 per person</p>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
                   <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
                 </div>
               </div>
 
               <p className="text-foreground/70 mb-6">
-<<<<<<< HEAD
                
 
 
@@ -431,9 +364,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
 
 
 
-=======
-                Exclusive private access with personalized storytelling, flexible timing and bespoke wine selections curated to your preferences.
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
               </p>
 
              <Button
@@ -463,11 +393,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
               <div className="space-y-4 mb-8">
                 <div>
                   <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
-<<<<<<< HEAD
                   <p className="text-lg font-semibold mt-1">2 Wineries + Seated Lunch</p>
-=======
-                  <p className="text-lg font-semibold mt-1">2 Wineries + Long Seated Lunch</p>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
                 </div>
                 <div className="border-l-2 border-primary pl-4 space-y-2">
                   <p className="text-sm"><span className="font-semibold">Duration:</span> 7–8 hours</p>
@@ -478,7 +404,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
               </div>
 
               <p className="text-foreground/70 mb-6">
-<<<<<<< HEAD
                 
 
 
@@ -494,9 +419,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
     <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless full‑day journey</li>
   </ul>
 
-=======
-                An immersive full-day journey featuring owner and winemaker involvement, multiple vineyard visits, and a long seated lunch showcasing regional cuisine paired with premium wines.
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
               </p>
 
               <Button
@@ -525,11 +447,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
               <div className="space-y-4 mb-8">
                 <div>
                   <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
-<<<<<<< HEAD
                   <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
-=======
-                  <p className="text-lg font-semibold mt-1">For Couples, Friends, or Families</p>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
                 </div>
                 <div className="border-l-2 border-accent pl-4 space-y-2">
                   <p className="text-sm"><span className="font-semibold">Base Rate:</span> €1,300 (up to 4 guests)</p>
@@ -540,7 +458,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
               </div>
 
               <p className="text-foreground/70 mb-6">
-<<<<<<< HEAD
             
 
 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -556,9 +473,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
     <li style={{ marginBottom: '8px' }}>• Designed for travelers who value privacy, exclusivity and high‑level hospitality</li>
   </ul>
 
-=======
-                Exclusive full-day private access with personalized storytelling, multiple wineries, seated lunch, and bespoke wine selections curated entirely to your preferences.
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
               </p>
 
               <Button
@@ -1057,7 +971,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
   </div>
 </section>
 
-<<<<<<< HEAD
 <section id="faq" className="py-20 bg-foreground/5 border-t border-primary/20">
   <div className="container">
     <h2 className="text-3xl font-semibold mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -1140,8 +1053,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
 
 
 
-=======
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
 
 
       {/* Footer */}
@@ -1172,7 +1083,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
                 <li><a href="#partners" className="hover:text-primary transition-colors">Partnerships</a></li>
               </ul>
             </div>
-<<<<<<< HEAD
 
 <div>
   <p className="font-semibold mb-4">Connect</p>
@@ -1258,16 +1168,6 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
             
 
 
-=======
-            <div>
-              <p className="font-semibold mb-4">Connect</p>
-              <ul className="space-y-2 text-sm text-foreground/60">
-                <li><a href="https://www.instagram.com/greekwineshow" target="_blank" rel="noopener noreferrer"  className="hover:text-primary transition-colors">Instagram</a></li>
-                <li><a href="https://www.youtube.com/@greekwineshow" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">YouTube</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Newsletter</a></li>
-              </ul>
-            </div>
->>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
           </div>
 
           <div className="border-t border-primary/20 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
