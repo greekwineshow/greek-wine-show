@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+<<<<<<< HEAD
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -10,6 +11,16 @@
     "check": "tsc --noEmit",
     "format": "prettier --write ."
   },
+=======
+
+"scripts": {
+  "dev": "vite --host",
+  "build": "vite build",
+  "preview": "vite preview --host",
+  "check": "tsc --noEmit",
+  "format": "prettier --write ."
+},
+>>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -45,7 +56,11 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.22",
     "input-otp": "^1.4.2",
+<<<<<<< HEAD
     "lucide-react": "^1.8.0",
+=======
+    "lucide-react": "^0.453.0",
+>>>>>>> a1c407bfe0138170872d1dabd37578e7c503a033
     "nanoid": "^5.1.5",
     "next-themes": "^0.4.6",
     "react": "^19.2.1",
