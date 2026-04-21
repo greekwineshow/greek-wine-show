@@ -119,7 +119,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
           {/* Right: Hero Image */}
           <div className="relative h-96 lg:h-full min-h-96">
             <img
-              src="/images/hero-wine-vineyard.jpg"
+              src="/images/hero-wine-vineyard.webp"
               alt="Greek vineyard at golden hour"
               className="w-full h-full object-cover rounded-lg shadow-2xl"
             />
@@ -222,7 +222,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
       {/* Image Column with Vignette */}
       <div className="relative">
         <img 
-          src="/images/wine tours athens greece curated tours wineries.png" 
+          src="/images/wine-tours-athens-greece-curated-tours-wineries.webp" 
           alt="Family-run Greek winery" 
           className="rounded-lg shadow-xl w-full object-cover"
         />
@@ -249,7 +249,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
       {/* Left: Image */}
       <div className="relative h-80 lg:h-96">
         <img
-          src="/images/Athens wine tours day trips day tours half day wine tasting and pairing.png"   // ← replace with your actual filename
+          src="/images/Athens-wine-tours-day-trips-day-tours-half-day-wine-tasting-and-pairing.webp"   // ← replace with your actual filename
           alt="Luxury wine experience in Greece"
           className="w-full h-full object-cover rounded-lg shadow-xl"
         />
