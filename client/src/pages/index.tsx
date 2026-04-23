@@ -40,16 +40,343 @@ useEffect(() => {
 
 useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grecaptcha && document.getElementById("recaptcha-container") ) { (window as any).grecaptcha.render("recaptcha-container"); } }, 200); } }, [activeForm]); 
 
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+
+
+return (
+  <>
+    
+<div className="hero-container">
+ <video
+  className="hero-video desktop"
+  src="/videos/hero-desktop.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  onLoadedData={(e) => e.currentTarget.classList.add("ready")}
+/>
+
+ <video
+  className="hero-video mobile"
+  src="/videos/hero-mobile.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  onLoadedData={(e) => e.currentTarget.classList.add("ready")}
+/>
+
+
+  <div className="hero-overlay"></div>
+  <div className="hero-bottom-fade"></div>
+
+<div className="hero-text">
+  <h1>The Greek Wine Show</h1>
+  <p>Discover Greece through its wines</p>
+</div>
+
+</div>
+
+
+
+     {/* Luxury Wine Experiences Section */}
+<section id="experiences" className="py-14">
+  <div className="container">
+
+    {/* NEW: Image + Text side‑by‑side */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+
+      {/* Left: Image */}
+      <div className="relative h-80 lg:h-96">
+        <img
+          src="/images/Athens-wine-tours-day-trips-day-tours-half-day-wine-tasting-and-pairing.webp"   // ← replace with your actual filename
+          alt="Luxury wine experience in Greece"
+          className="w-full h-full object-cover rounded-lg shadow-xl"
+        />
+      </div>
+
+      {/* Right: Text */}
+      <div className="space-y-6">
+        <h2 className="leading-tight">Luxury Wine Experiences</h2>
+        <p className="text-lg text-foreground/70 leading-relaxed">
+          Each experience is meticulously curated to showcase Greek wine excellence. 
+          We prioritize storytelling, quality and authentic connections with winemakers—never mass tourism. 
+          Our private vineyard experiences in Greece bring you closer to the country’s most expressive terroirs.
+        </p>
+        <p className="text-lg text-foreground/70 leading-relaxed">
+          For travelers seeking food and wine tours in Greece, we design immersive routes that highlight 
+          local gastronomy, artisanal producers and the cultural heritage behind every bottle.
+        </p>
+      </div>
+
+    </div>
+
+
+          {/* Experience Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Half Day Premium Group */}
+            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="mb-6">
+                <Calendar className="w-8 h-8 text-primary mb-4" />
+                <h3 className="text-2xl mb-2">The Vineyard Introduction</h3>
+                <p className="text-sm text-gray-500 mb-4">Half‑Day • 4–6 hours</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div>
+                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
+                  <p className="text-lg font-semibold mt-1">2 Winery Visits with Wine Tastings and Pairings</p>
+                </div>
+                <div className="border-l-2 border-primary pl-4 space-y-2">
+                  <p className="text-sm"><span className="font-semibold">Duration:</span> 4–6 hours</p>
+                  <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
+                  <p className="text-sm"><span className="font-semibold">Price:</span> Starting from €180 per person</p>
+                </div>
+              </div>
+
+              <div className="text-foreground/70 mb-6">
+               
+
+<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+    <li style={{ marginBottom: '8px' }}>• Premium vehicle and professional driver included</li>
+    <li style={{ marginBottom: '8px' }}>• Visits to two wineries outside Athens</li>
+    <li style={{ marginBottom: '8px' }}>• 10–12 wines with curated food pairings</li>
+    <li style={{ marginBottom: '8px' }}>• Small‑group guarantee of just 4–6 guests</li>
+    <li style={{ marginBottom: '8px' }}>• Founder‑hosted experience with insider storytelling</li>
+    <li style={{ marginBottom: '8px' }}>• Direct access to winemakers and private cellar areas</li>
+    <li style={{ marginBottom: '8px' }}>• No shared groups, no strangers</li>
+    <li style={{ marginBottom: '8px' }}>• No crowds, no rush, no generic tourist stops</li>
+    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless half‑day escape</li>
+  </ul>
+
+
+              </div>
+
+              <Button
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Reserve Now
+</Button>
+</div>
+
+            {/* Half Day Private Experience */}
+            <div className="bg-accent/10 rounded-lg p-8 border-2 border-accent hover:bg-accent/15 transition-colors">
+              <div className="mb-6">
+                <Users className="w-8 h-8 text-accent mb-4" />
+                <h3 className="text-2xl mb-2">The Private Vineyard Escape</h3>
+                <p className="text-sm text-gray-500 mb-4">Half‑Day • 4–6 hours • Private</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div>
+                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
+                  <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
+                </div>
+                <div className="border-l-2 border-accent pl-4 space-y-2">
+                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (up to 4 guests)</p>
+                  <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
+                  <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
+                </div>
+              </div>
+
+              <div className="text-foreground/70 mb-6">
+               
+
+
+<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+    <li style={{ marginBottom: '8px' }}>• Fully private experience with no shared groups or strangers</li>
+    <li style={{ marginBottom: '8px' }}>• Personalized itinerary tailored to your group’s pace and interests</li>
+    <li style={{ marginBottom: '8px' }}>• Visits to multiple wineries with exclusive access</li>
+    <li style={{ marginBottom: '8px' }}>• Founder‑hosted experience with deep storytelling and insider knowledge</li>
+    <li style={{ marginBottom: '8px' }}>• Direct interaction with winemakers and private cellar insights</li>
+    <li style={{ marginBottom: '8px' }}>• 10–14 wines selected specifically for your group</li>
+    <li style={{ marginBottom: '8px' }}>• No shared groups, no strangers</li>
+    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless full‑day escape</li>
+    <li style={{ marginBottom: '8px' }}>• Designed for travelers who value privacy, comfort and high‑level hospitality</li>
+  </ul>
+
+
+
+              </div>
+
+             <Button
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Reserve Now
+</Button>
+
+
+            </div>
+
+            {/* Full Day Premium Group */}
+            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="mb-6">
+                <Calendar className="w-8 h-8 text-primary mb-4" />
+                <h3 className="text-2xl mb-2">The Grand Terroir Journey</h3>
+                <p className="text-sm text-gray-500 mb-4">Full‑Day • 8–10 hours</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div>
+                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
+                  <p className="text-lg font-semibold mt-1">2 Wineries + Seated Lunch</p>
+                </div>
+                <div className="border-l-2 border-primary pl-4 space-y-2">
+                  <p className="text-sm"><span className="font-semibold">Duration:</span> 7–8 hours</p>
+                  <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
+                  <p className="text-sm"><span className="font-semibold">Owner/Winemaker:</span> Direct involvement</p>
+                  <p className="text-sm"><span className="font-semibold">Price:</span> €250 per person</p>
+                </div>
+              </div>
+
+              <div className="text-foreground/70 mb-6">
+                
+
+
+<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+    <li style={{ marginBottom: '8px' }}>• Full‑day premium transport with a professional driver</li>
+    <li style={{ marginBottom: '8px' }}>• Visits to two wineries across distinct terroirs</li>
+    <li style={{ marginBottom: '8px' }}>• Premium seated lunch with curated wine pairings</li>
+    <li style={{ marginBottom: '8px' }}>• 10–14 wines showcasing regional diversity and craftsmanship</li>
+    <li style={{ marginBottom: '8px' }}>• Small‑group guarantee of just 4–6 guests</li>
+    <li style={{ marginBottom: '8px' }}>• Founder‑hosted storytelling and guidance throughout the day</li>
+    <li style={{ marginBottom: '8px' }}>• Direct access to winemakers and private cellar areas</li>
+    <li style={{ marginBottom: '8px' }}>• Unhurried pacing with time to explore vineyards and estates</li>
+    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless full‑day journey</li>
+  </ul>
+
+              </div>
+
+              <Button
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Reserve Now
+</Button>
+</div>
+
+
+            {/* Full Day Private Experience */}
+            <div className="bg-accent/10 rounded-lg p-8 border-2 border-accent hover:bg-accent/15 transition-colors">
+              <div className="mb-6">
+                <Users className="w-8 h-8 text-accent mb-4" />
+                <h3 className="text-2xl mb-2">The Private Estate Immersion</h3>
+                <p className="text-sm text-gray-500 mb-4">Full‑Day • 8–10 hours • Private</p>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div>
+                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
+                  <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
+                </div>
+                <div className="border-l-2 border-accent pl-4 space-y-2">
+                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €1,300 (up to 4 guests)</p>
+                  <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
+                  <p className="text-sm"><span className="font-semibold">Max Group:</span> 6 guests</p>
+                  <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
+                </div>
+              </div>
+
+              <div className="text-foreground/70 mb-6">
+            
+
+<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+    <li style={{ marginBottom: '8px' }}>• Fully private experience with no shared groups or strangers</li>
+    <li style={{ marginBottom: '8px' }}>• Premium vehicle and dedicated driver exclusively for your group</li>
+    <li style={{ marginBottom: '8px' }}>• Exclusive access to a single boutique estate for a deeper, more intimate visit</li>
+    <li style={{ marginBottom: '8px' }}>• Founder‑hosted guidance with tailored storytelling and personal attention</li>
+    <li style={{ marginBottom: '8px' }}>• Extended cellar and vineyard exploration not offered on group tours</li>
+    <li style={{ marginBottom: '8px' }}>• 10–12 premium wines with curated pairings designed specifically for this estate</li>
+    <li style={{ marginBottom: '8px' }}>• Unhurried pacing with full flexibility to enjoy the estate at your own rhythm</li>
+    <li style={{ marginBottom: '8px' }}>• Direct interaction with winemakers and behind‑the‑scenes insights</li>
+    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless, elevated private immersion</li>
+    <li style={{ marginBottom: '8px' }}>• Designed for travelers who value privacy, exclusivity and high‑level hospitality</li>
+  </ul>
+
+              </div>
+
+              <Button
+  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+  onClick={() => {
+    setActiveForm("tour");
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
+  Reserve Now
+</Button>
+
+
+            </div>
+          </div>
+
+          {/* Experience Highlights */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">100%</div>
+              <p className="text-foreground/70">Private Access to Winemakers</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">4–6</div>
+              <p className="text-foreground/70">Maximum Group Size</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-primary mb-2">∞</div>
+              <p className="text-foreground/70">Stories & Terroir Connections</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    
+
+    <div className="min-h-screen bg-background text-foreground mt-24">
 
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/20">
         <div className="container flex items-center justify-between h-16">
-          <div className="text-2xl font-bold text-primary" style={{ fontFamily: "'Playfair Display', serif" }}>
-            The Greek Wine Show
-          </div>
+         <div className="flex items-center">
+<div className="pl-0 ml-[-20px]">
+  <div className="pl-0 ml-[-8px]">
+  <a href="#about">
+    <img
+      src="/images/greek-wine-show-logo-nav.png"
+      alt="Greek Wine Show"
+      className="h-60 w-auto block select-none mt-4"
+    />
+  </a>
+</div>
+
+
+</div>
+
+
+</div>
+
+
           <div className="hidden md:flex gap-8 text-sm">
             <a href="#about" className="hover:text-primary transition-colors">About</a>
             <a href="#experiences" className="hover:text-primary transition-colors">Experiences</a>
@@ -59,8 +386,11 @@ useEffect(() => { if (activeForm) { setTimeout(() => { if ( (window as any).grec
         </div>
       </nav>
 
+
+
       {/* Hero Section */}
-      <section className="pt-24 pb-20 relative overflow-hidden">
+      <section className="relative h-screen pb-20">
+
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
           <div className="space-y-6">
@@ -92,7 +422,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
     }
   }}
 >
-  Request a Date
+  Reserve Now
   <ArrowRight className="ml-2 w-4 h-4" />
 </Button>
 
@@ -230,287 +560,13 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
         {/* Subtle vignette overlay */}
         <div className="absolute inset-0 rounded-lg pointer-events-none bg-gradient-to-b from-black/10 via-transparent to-black/10"></div>
 
-        {/* Subtle frame */}
-        <div className="absolute -inset-3 border border-primary/20 rounded-lg -z-10"></div>
+      
       </div>
 
     </div>
   </div>
 </section>
 
-
-     {/* Luxury Wine Experiences Section */}
-<section id="experiences" className="py-14">
-  <div className="container">
-
-    {/* NEW: Image + Text side‑by‑side */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-
-      {/* Left: Image */}
-      <div className="relative h-80 lg:h-96">
-        <img
-          src="/images/Athens-wine-tours-day-trips-day-tours-half-day-wine-tasting-and-pairing.webp"   // ← replace with your actual filename
-          alt="Luxury wine experience in Greece"
-          className="w-full h-full object-cover rounded-lg shadow-xl"
-        />
-      </div>
-
-      {/* Right: Text */}
-      <div className="space-y-6">
-        <h2 className="leading-tight">Luxury Wine Experiences</h2>
-        <p className="text-lg text-foreground/70 leading-relaxed">
-          Each experience is meticulously curated to showcase Greek wine excellence. 
-          We prioritize storytelling, quality and authentic connections with winemakers—never mass tourism. 
-          Our private vineyard experiences in Greece bring you closer to the country’s most expressive terroirs.
-        </p>
-        <p className="text-lg text-foreground/70 leading-relaxed">
-          For travelers seeking food and wine tours in Greece, we design immersive routes that highlight 
-          local gastronomy, artisanal producers and the cultural heritage behind every bottle.
-        </p>
-      </div>
-
-    </div>
-
-
-          {/* Experience Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Half Day Premium Group */}
-            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="mb-6">
-                <Calendar className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-2xl mb-2">The Vineyard Introduction</h3>
-                <p className="text-sm text-gray-500 mb-4">Half‑Day • 4–6 hours</p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                <div>
-                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
-                  <p className="text-lg font-semibold mt-1">2 Winery Visits with Wine Tastings and Pairings</p>
-                </div>
-                <div className="border-l-2 border-primary pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Duration:</span> 4–6 hours</p>
-                  <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
-                  <p className="text-sm"><span className="font-semibold">Price:</span> Starting from €180 per person</p>
-                </div>
-              </div>
-
-              <p className="text-foreground/70 mb-6">
-               
-
-<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-    <li style={{ marginBottom: '8px' }}>• Premium vehicle and professional driver included</li>
-    <li style={{ marginBottom: '8px' }}>• Visits to two wineries outside Athens</li>
-    <li style={{ marginBottom: '8px' }}>• 10–12 wines with curated food pairings</li>
-    <li style={{ marginBottom: '8px' }}>• Small‑group guarantee of just 4–6 guests</li>
-    <li style={{ marginBottom: '8px' }}>• Founder‑hosted experience with insider storytelling</li>
-    <li style={{ marginBottom: '8px' }}>• Direct access to winemakers and private cellar areas</li>
-    <li style={{ marginBottom: '8px' }}>• No shared groups, no strangers</li>
-    <li style={{ marginBottom: '8px' }}>• No crowds, no rush, no generic tourist stops</li>
-    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless half‑day escape</li>
-  </ul>
-
-
-              </p>
-
-              <Button
-  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-  onClick={() => {
-    setActiveForm("tour");
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
->
-  Request a Date
-</Button>
-</div>
-
-            {/* Half Day Private Experience */}
-            <div className="bg-accent/10 rounded-lg p-8 border-2 border-accent hover:bg-accent/15 transition-colors">
-              <div className="mb-6">
-                <Users className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-2xl mb-2">The Private Vineyard Escape</h3>
-                <p className="text-sm text-gray-500 mb-4">Half‑Day • 4–6 hours • Private</p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                <div>
-                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
-                  <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
-                </div>
-                <div className="border-l-2 border-accent pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (up to 4 guests)</p>
-                  <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
-                  <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
-                </div>
-              </div>
-
-              <p className="text-foreground/70 mb-6">
-               
-
-
-<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-    <li style={{ marginBottom: '8px' }}>• Fully private experience with no shared groups or strangers</li>
-    <li style={{ marginBottom: '8px' }}>• Personalized itinerary tailored to your group’s pace and interests</li>
-    <li style={{ marginBottom: '8px' }}>• Visits to multiple wineries with exclusive access</li>
-    <li style={{ marginBottom: '8px' }}>• Founder‑hosted experience with deep storytelling and insider knowledge</li>
-    <li style={{ marginBottom: '8px' }}>• Direct interaction with winemakers and private cellar insights</li>
-    <li style={{ marginBottom: '8px' }}>• 10–14 wines selected specifically for your group</li>
-    <li style={{ marginBottom: '8px' }}>• No shared groups, no strangers</li>
-    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless full‑day escape</li>
-    <li style={{ marginBottom: '8px' }}>• Designed for travelers who value privacy, comfort and high‑level hospitality</li>
-  </ul>
-
-
-
-              </p>
-
-             <Button
-  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-  onClick={() => {
-    setActiveForm("tour");
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
->
-  Request a Date
-</Button>
-
-
-            </div>
-
-            {/* Full Day Premium Group */}
-            <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="mb-6">
-                <Calendar className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-2xl mb-2">The Grand Terroir Journey</h3>
-                <p className="text-sm text-gray-500 mb-4">Full‑Day • 8–10 hours</p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                <div>
-                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
-                  <p className="text-lg font-semibold mt-1">2 Wineries + Seated Lunch</p>
-                </div>
-                <div className="border-l-2 border-primary pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Duration:</span> 7–8 hours</p>
-                  <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
-                  <p className="text-sm"><span className="font-semibold">Owner/Winemaker:</span> Direct involvement</p>
-                  <p className="text-sm"><span className="font-semibold">Price:</span> €250 per person</p>
-                </div>
-              </div>
-
-              <p className="text-foreground/70 mb-6">
-                
-
-
-<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-    <li style={{ marginBottom: '8px' }}>• Full‑day premium transport with a professional driver</li>
-    <li style={{ marginBottom: '8px' }}>• Visits to two wineries across distinct terroirs</li>
-    <li style={{ marginBottom: '8px' }}>• Premium seated lunch with curated wine pairings</li>
-    <li style={{ marginBottom: '8px' }}>• 10–14 wines showcasing regional diversity and craftsmanship</li>
-    <li style={{ marginBottom: '8px' }}>• Small‑group guarantee of just 4–6 guests</li>
-    <li style={{ marginBottom: '8px' }}>• Founder‑hosted storytelling and guidance throughout the day</li>
-    <li style={{ marginBottom: '8px' }}>• Direct access to winemakers and private cellar areas</li>
-    <li style={{ marginBottom: '8px' }}>• Unhurried pacing with time to explore vineyards and estates</li>
-    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless full‑day journey</li>
-  </ul>
-
-              </p>
-
-              <Button
-  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-  onClick={() => {
-    setActiveForm("tour");
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
->
-  Request a Date
-</Button>
-</div>
-
-
-            {/* Full Day Private Experience */}
-            <div className="bg-accent/10 rounded-lg p-8 border-2 border-accent hover:bg-accent/15 transition-colors">
-              <div className="mb-6">
-                <Users className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-2xl mb-2">The Private Estate Immersion</h3>
-                <p className="text-sm text-gray-500 mb-4">Full‑Day • 8–10 hours • Private</p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                <div>
-                  <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
-                  <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
-                </div>
-                <div className="border-l-2 border-accent pl-4 space-y-2">
-                  <p className="text-sm"><span className="font-semibold">Base Rate:</span> €1,300 (up to 4 guests)</p>
-                  <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
-                  <p className="text-sm"><span className="font-semibold">Max Group:</span> 6 guests</p>
-                  <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
-                </div>
-              </div>
-
-              <p className="text-foreground/70 mb-6">
-            
-
-<ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-    <li style={{ marginBottom: '8px' }}>• Fully private experience with no shared groups or strangers</li>
-    <li style={{ marginBottom: '8px' }}>• Premium vehicle and dedicated driver exclusively for your group</li>
-    <li style={{ marginBottom: '8px' }}>• Exclusive access to a single boutique estate for a deeper, more intimate visit</li>
-    <li style={{ marginBottom: '8px' }}>• Founder‑hosted guidance with tailored storytelling and personal attention</li>
-    <li style={{ marginBottom: '8px' }}>• Extended cellar and vineyard exploration not offered on group tours</li>
-    <li style={{ marginBottom: '8px' }}>• 10–12 premium wines with curated pairings designed specifically for this estate</li>
-    <li style={{ marginBottom: '8px' }}>• Unhurried pacing with full flexibility to enjoy the estate at your own rhythm</li>
-    <li style={{ marginBottom: '8px' }}>• Direct interaction with winemakers and behind‑the‑scenes insights</li>
-    <li style={{ marginBottom: '8px' }}>• All logistics handled end‑to‑end for a seamless, elevated private immersion</li>
-    <li style={{ marginBottom: '8px' }}>• Designed for travelers who value privacy, exclusivity and high‑level hospitality</li>
-  </ul>
-
-              </p>
-
-              <Button
-  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-  onClick={() => {
-    setActiveForm("tour");
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
->
-  Request a Date
-</Button>
-
-
-            </div>
-          </div>
-
-          {/* Experience Highlights */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">100%</div>
-              <p className="text-foreground/70">Private Access to Winemakers</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">4–6</div>
-              <p className="text-foreground/70">Maximum Group Size</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">∞</div>
-              <p className="text-foreground/70">Stories & Terroir Connections</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    
 
     {/* Testimonials Section */}
 <section className="py-14 bg-white/50">
@@ -1178,7 +1234,9 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
             </div>
           </div>
         </div>
-      </footer>
+            </footer>
     </div>
+  </>
   );
 }
+
