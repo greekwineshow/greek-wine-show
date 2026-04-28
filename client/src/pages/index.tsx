@@ -21,7 +21,7 @@ const experiences = [
 
         <div className="space-y-4 mb-8">
           <div>
-            <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
+            
             <p className="text-lg font-semibold mt-1">2 Winery Visits with Wine Tastings and Pairings</p>
           </div>
 
@@ -58,7 +58,7 @@ const experiences = [
 
         <div className="space-y-4 mb-8">
           <div>
-            <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
+        
             <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
           </div>
 
@@ -94,7 +94,7 @@ const experiences = [
 
         <div className="space-y-4 mb-8">
           <div>
-            <p className="text-sm text-foreground/60 uppercase tracking-wide">Experience Includes</p>
+            
             <p className="text-lg font-semibold mt-1">2 Wineries + Seated Lunch</p>
           </div>
 
@@ -132,7 +132,7 @@ const experiences = [
 
         <div className="space-y-4 mb-8">
           <div>
-            <p className="text-sm text-foreground/60 uppercase tracking-wide">Private & Tailored</p>
+            
             <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
           </div>
 
@@ -443,7 +443,8 @@ return (
 
 
       {/* Hero Section */}
-      <section className="relative h-screen pb-20">
+      <section className="relative h-auto lg:h-screen flex items-center pb-10 lg:pb-0">
+
 
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
