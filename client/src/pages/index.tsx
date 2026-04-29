@@ -103,7 +103,7 @@ const experiences = [
           
             <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
 <p className="text-sm"><span className="font-semibold">Price:</span> €250 per person</p>
-            <p className="text-sm"><span className="font-semibold"></span> A journey through two hand‑selected wineries in one of Greece’s premier wine regions.</p>
+            <p className="text-sm"><span className="font-semibold"></span> A journey through hand‑selected wineries in one of Greece’s premier wine regions.</p>
             
           </div>
         </div>
@@ -600,7 +600,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
             </li>
             <li className="flex items-start">
               <span className="text-primary mt-1 mr-3">▹</span>
-              <span>Authentic, non‑touristic itineraries curated around stories, tradition, and terroir.</span>
+              <span>Authentic, non‑touristic itineraries curated around stories, tradition and terroir.</span>
             </li>
           </ul>
         </div>
