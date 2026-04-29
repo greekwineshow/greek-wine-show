@@ -22,13 +22,14 @@ const experiences = [
         <div className="space-y-4 mb-8">
           <div>
             
-            <p className="text-lg font-semibold mt-1">2 Winery Visits with Wine Tastings and Pairings</p>
+           
           </div>
 
           <div className="border-l-2 border-primary pl-4 space-y-2">
-            <p className="text-sm"><span className="font-semibold">Duration:</span> 4–6 hours</p>
-            <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
-            <p className="text-sm"><span className="font-semibold">Price:</span> Starting from €180 per person</p>
+            <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 Guests</p>
+          
+            <p className="text-sm"><span className="font-semibold">Price:</span> €150 per person</p>
+<p className="text-sm"><span className="font-semibold"></span> A guided journey through two hand‑picked family wineries, offering an inspiring first taste of Greece’s vineyard culture through authentic stories, landscapes and wines.</p>
           </div>
         </div>
 
@@ -63,9 +64,9 @@ const experiences = [
           </div>
 
           <div className="border-l-2 border-accent pl-4 space-y-2">
-            <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (up to 4 guests)</p>
-            <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
-            <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
+            <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (4 guests)</p>
+            <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€100 per person</p>
+            <p className="text-sm"><span className="font-semibold"></span> A fully private, tailor‑made vineyard escape crafted exclusively for your group.</p>
           </div>
         </div>
 
@@ -99,16 +100,17 @@ const experiences = [
           </div>
 
           <div className="border-l-2 border-primary pl-4 space-y-2">
-            <p className="text-sm"><span className="font-semibold">Duration:</span> 7–8 hours</p>
+          
             <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 guests</p>
-            <p className="text-sm"><span className="font-semibold">Owner/Winemaker:</span> Direct involvement</p>
-            <p className="text-sm"><span className="font-semibold">Price:</span> €250 per person</p>
+<p className="text-sm"><span className="font-semibold">Price:</span> €250 per person</p>
+            <p className="text-sm"><span className="font-semibold"></span> A journey through two hand‑selected wineries in one of Greece’s premier wine regions.</p>
+            
           </div>
         </div>
 
         <ul className="space-y-2 text-gray-700">
           <li>• Full‑day premium transport with a professional driver</li>
-          <li>• Visits to two wineries across distinct terroirs</li>
+          <li>• Visits to two wineries in one of Greece's most celebrated wine regions</li>
           <li>• Premium seated lunch with curated wine pairings</li>
           <li>• 10–14 wines showcasing regional diversity and craftsmanship</li>
           <li>• Small‑group guarantee of just 4–6 guests</li>
@@ -137,10 +139,10 @@ const experiences = [
           </div>
 
           <div className="border-l-2 border-accent pl-4 space-y-2">
-            <p className="text-sm"><span className="font-semibold">Base Rate:</span> €1,300 (up to 4 guests)</p>
+            <p className="text-sm"><span className="font-semibold">Base Rate:</span> €1,300 (4 guests)</p>
             <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
             <p className="text-sm"><span className="font-semibold">Max Group:</span> 6 guests</p>
-            <p className="text-sm"><span className="font-semibold">Customization:</span> Tailored itinerary & pacing</p>
+            <p className="text-sm"><span className="font-semibold"></span>A full‑day private immersion into Greece’s most storied wine country, offering rare behind‑the‑scenes access to two exceptional estates and a beautifully prepared seated lunch reserved exclusively for your group.</p>
           </div>
         </div>
 
