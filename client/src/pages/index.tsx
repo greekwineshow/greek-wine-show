@@ -413,24 +413,20 @@ return (
       
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/20">
-        <div className="container flex items-center justify-between h-16">
-         <div className="flex items-center">
-<div className="pl-0 ml-[-20px]">
-  <div className="pl-0 ml-[-8px]">
-  <a href="#about">
+        <div className="container flex items-center justify-between h-16 -ml-2">
+<div className="flex items-center h-16">
+  <a href="/" className="flex items-center">
     <img
       src="/images/greek-wine-show-logo-nav.png"
       alt="Greek Wine Show"
-      className="h-60 w-auto block select-none mt-4"
+      className="h-34 w-auto block select-none"
+      style={{ objectFit: 'contain' }}
     />
   </a>
 </div>
 
 
-</div>
 
-
-</div>
 
 
           <div className="hidden md:flex gap-8 text-sm">
