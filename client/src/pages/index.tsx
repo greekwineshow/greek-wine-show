@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Wine, Users, MapPin, Calendar, Mail, Phone, Key, Compass } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
+
+
+
 export default function Home() {
   const [availabilitySuccess, setAvailabilitySuccess] = useState(false);
   const [activeForm, setActiveForm] = useState<"tour" | "enquiry" | "partnership" | null>(null);
@@ -204,36 +207,55 @@ return (
   <>
     
 <div className="hero-container">
- <video
-  className="hero-video desktop"
-  src="/videos/hero-desktop.mp4"
-  autoPlay
-  muted
-  loop
-  playsInline
-  onLoadedData={(e) => e.currentTarget.classList.add("ready")}
-/>
+  <video
+    className="hero-video desktop"
+    src="/videos/hero-desktop.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    onLoadedData={(e) => e.currentTarget.classList.add("ready")}
+  />
 
- <video
-  className="hero-video mobile"
-  src="/videos/hero-mobile.mp4"
-  autoPlay
-  muted
-  loop
-  playsInline
-  onLoadedData={(e) => e.currentTarget.classList.add("ready")}
-/>
-
+  <video
+    className="hero-video mobile"
+    src="/videos/hero-mobile.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    onLoadedData={(e) => e.currentTarget.classList.add("ready")}
+  />
 
   <div className="hero-overlay"></div>
   <div className="hero-bottom-fade"></div>
 
-<div className="hero-text">
-  <h1>The Greek Wine Show</h1>
-  <p>Discover Greece through its wines</p>
+  <div className="hero-text">
+    <h1>The Greek Wine Show</h1>
+    <p>Discover Greece through its wines</p>
+  </div>
 </div>
 
+{/* WhatsApp Text Label */}
+<div className="fixed bottom-24 right-5 z-50 bg-white/40 backdrop-blur-sm text-black text-sm font-medium px-4 py-2 rounded-full shadow-md">
+  We’re here to help — message us on WhatsApp
 </div>
+
+
+
+{/* WhatsApp Floating Button */}
+<a
+  href="https://wa.me/306973484862" // your Greek WhatsApp Business number
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-5 right-5 z-50 hover:scale-110 transition-transform drop-shadow-xl"
+>
+  <img
+    src="/images/whatsapp.svg"
+    alt="WhatsApp"
+    className="w-14 h-14"
+  />
+</a>
 
 
 
