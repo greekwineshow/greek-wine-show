@@ -4,9 +4,12 @@ export const config = {
 
 import Stripe from "stripe";
 
-export default async function handler(req, res) {
+export default async function handler(req) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -17,13 +20,16 @@ export default async function handler(req, res) {
     3: 138000,
     4: 176000,
     5: 200000,
-    6: 228000
+    6: 228000,
   };
 
-  const { guests } = req.body;
+  const { guests } = await req.json();
 
   if (!PRICE_TABLE[guests]) {
-    return res.status(400).json({ error: "Invalid guest count" });
+    return new Response(JSON.stringify({ error: "Invalid guest count" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   try {
@@ -36,20 +42,26 @@ export default async function handler(req, res) {
             product_data: {
               name: "The Grand Two-Day Greek Wine Journey",
               description:
-                "A two-day escape into the heart of Greek wine culture. Wander through legendary Nemea vineyards, taste rare cellar-only wines, meet the winemakers shaping Greece’s modern wine story and unwind in a peaceful overnight stay surrounded by mountains and vines."
+                "A two-day escape into the heart of Greek wine culture. Wander through legendary Nemea vineyards, taste rare cellar-only wines, meet the winemakers shaping Greece’s modern wine story and unwind in a peaceful overnight stay surrounded by mountains and vines.",
             },
-            unit_amount: PRICE_TABLE[guests]
+            unit_amount: PRICE_TABLE[guests],
           },
-          quantity: 1
-        }
+          quantity: 1,
+        },
       ],
       success_url: "https://greekwineshow.com",
-      cancel_url: "https://greekwineshow.com"
+      cancel_url: "https://greekwineshow.com",
     });
 
-    return res.status(200).json({ url: session.url });
+    return new Response(JSON.stringify({ url: session.url }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: "Stripe session error" });
+    return new Response(JSON.stringify({ error: "Stripe session error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
