@@ -1,3 +1,7 @@
+export const config = {
+  runtime: "nodejs",
+};
+
 import Stripe from "stripe";
 
 export default async function handler(req, res) {
