@@ -11,16 +11,34 @@ export default function Home() {
 
   const [activeExperience, setActiveExperience] = useState<number | null>(null);
 
+  const [showGuestOverlay, setShowGuestOverlay] = useState(false);
+  const [guests, setGuests] = useState(1);
+
+  const PRICE_TABLE = {
+    1: 860,
+    2: 1120,
+    3: 1380,
+    4: 1760,
+    5: 2000,
+    6: 2280,
+  };
+
+  const price = PRICE_TABLE[guests];
+  const pricePerPerson = Math.round(price / guests);
+  const savings = PRICE_TABLE[1] * guests - price;
+
 
 const experiences = [
   {
     id: 1,
-    title: "The Vineyard Introduction",
-    image: "/images/greek-wine-tours-athens-day-trips-the-vineyard-introduction.webp",
+    title: "Vineyard Stories: Athens Winery Experience",
+    image: "/images/greek-wine-tours-athens-day-trips-private-vineyard-escape.webp",
+    duration: "4 Hours",
+    paymentLink: "https://book.stripe.com/aFafZi7zxadoctk0Xw3gk05",
     details: (
       <div>
-        <h3 className="text-3xl font-semibold mb-4">The Vineyard Introduction</h3>
-        <p className="text-gray-600 mb-6">Half‑Day • 4–6 hours</p>
+        <h3 className="text-3xl font-semibold mb-4">Vineyard Stories: Athens Winery Experience</h3>
+        <p className="text-gray-600 mb-6">Approximately 4 hours</p>
 
         <div className="space-y-4 mb-8">
           <div>
@@ -31,19 +49,18 @@ const experiences = [
           <div className="border-l-2 border-primary pl-4 space-y-2">
             <p className="text-sm"><span className="font-semibold">Group Size:</span> 4–6 Guests</p>
           
-            <p className="text-sm"><span className="font-semibold">Price:</span> €150 per person</p>
+            <p className="text-sm"><span className="font-semibold">Price:</span> €169 per person</p>
 <p className="text-sm"><span className="font-semibold"></span> A guided journey through two hand‑picked family wineries, offering an inspiring first taste of Greece’s vineyard culture through authentic stories, landscapes and wines.</p>
           </div>
         </div>
 
         <ul className="space-y-2 text-gray-700">
           <li>• Premium vehicle and professional driver included</li>
-          <li>• Visits to two wineries outside Athens</li>
-          <li>• 10–12 wines with curated food pairings</li>
+          <li>• Exclusive access to Greek Wineries and Winemakers</li>
+          <li>• 6-8 wines with curated food pairings</li>
           <li>• Small‑group guarantee of just 4–6 guests</li>
           <li>• Founder‑hosted experience with insider storytelling</li>
           <li>• Direct access to winemakers and private cellar areas</li>
-          <li>• No shared groups, no strangers</li>
           <li>• No crowds, no rush, no generic tourist stops</li>
           <li>• All logistics handled end‑to‑end for a seamless half‑day escape</li>
         </ul>
@@ -53,34 +70,36 @@ const experiences = [
 
   {
     id: 2,
-    title: "The Private Vineyard Escape",
-    image: "/images/greek-wine-tours-athens-day-trips-private-vineyard-escape.webp",
+    title: "Athens Romantic Wine Escape",
+    image: "/images/greek-wine-tours-athens-day-trips-the-vineyard-introduction.webp",
+    duration: "4 Hours",
+    paymentLink: "https://book.stripe.com/00waEY5rpclw3WO8pY3gk02",
     details: (
       <div>
-        <h3 className="text-3xl font-semibold mb-4">The Private Vineyard Escape</h3>
-        <p className="text-gray-600 mb-6">Half‑Day • 4–6 hours • Private</p>
+        <h3 className="text-3xl font-semibold mb-4">Athens Romantic Wine Escape</h3>
+        <p className="text-gray-600 mb-6">Approximately 4 hours • Private</p>
 
         <div className="space-y-4 mb-8">
           <div>
         
-            <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
+            <p className="text-lg font-semibold mt-1">For Couples & Friends</p>
           </div>
 
           <div className="border-l-2 border-accent pl-4 space-y-2">
-            <p className="text-sm"><span className="font-semibold">Base Rate:</span> €650 (4 guests)</p>
-            <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€100 per person</p>
-            <p className="text-sm"><span className="font-semibold"></span> A fully private, tailor‑made vineyard escape crafted exclusively for your group.</p>
+            <p className="text-sm"><span className="font-semibold">Price:</span> €290 (2 guests)</p>
+            <p className="text-sm"><span className="font-semibold">Additional Guests:</span> Please Contact Us</p>
+            <p className="text-sm"><span className="font-semibold"></span> Escape Athens for a romantic private wine experience in the Attica countryside. Enjoy an unforgettable curated tasting of Greek wines paired with local cheeses, charcuterie and seasonal bites.</p>
           </div>
         </div>
 
         <ul className="space-y-2 text-gray-700">
           <li>• Fully private experience with no shared groups or strangers</li>
-          <li>• Personalized itinerary tailored to your group’s pace and interests</li>
-          <li>• Visits to multiple wineries with exclusive access</li>
+          <li>• Personalized itinerary tailored to your pace and interests</li>
+          <li>• Exclusive access to Greek Wineries and Winemakers</li>
           <li>• Founder‑hosted experience with deep storytelling and insider knowledge</li>
           <li>• Direct interaction with winemakers and private cellar insights</li>
-          <li>• 10–14 wines selected specifically for your group</li>
-          <li>• All logistics handled end‑to‑end for a seamless full‑day escape</li>
+          <li>• 5 - 6 wines selected specifically to highlight Greek Winemaking</li>
+          <li>• All logistics handled end‑to‑end for a seamless escape</li>
           <li>• Designed for travelers who value privacy, comfort and high‑level hospitality</li>
         </ul>
       </div>
@@ -89,11 +108,13 @@ const experiences = [
 
   {
     id: 3,
-    title: "The Grand Terroir Journey",
+    title: "The All‑Day Wine Odyssey",
     image: "/images/greek-wine-tours-athens-day-trips-great-terroir-journey.webp",
+duration: "8 - 10 Hours",
+paymentLink: "https://book.stripe.com/28EaEYdXV1GSfFweOm3gk06",
     details: (
       <div>
-        <h3 className="text-3xl font-semibold mb-4">The Grand Terroir Journey</h3>
+        <h3 className="text-3xl font-semibold mb-4">The All‑Day Wine Odyssey</h3>
         <p className="text-gray-600 mb-6">Full‑Day • 8–10 hours</p>
 
         <div className="space-y-4 mb-8">
@@ -115,7 +136,7 @@ const experiences = [
           <li>• Full‑day premium transport with a professional driver</li>
           <li>• Visits to two wineries in one of Greece's most celebrated wine regions</li>
           <li>• Premium seated lunch with curated wine pairings</li>
-          <li>• 10–14 wines showcasing regional diversity and craftsmanship</li>
+          <li>• Variety of Greek wines showcasing regional diversity and craftsmanship</li>
           <li>• Small‑group guarantee of just 4–6 guests</li>
           <li>• Founder‑hosted storytelling and guidance throughout the day</li>
           <li>• Direct access to winemakers and private cellar areas</li>
@@ -127,43 +148,61 @@ const experiences = [
   },
 
   {
-    id: 4,
-    title: "The Private Estate Immersion",
-    image: "/images/greek-wine-tours-athens-day-trips-private-estate-immersion.webp",
-    details: (
-      <div>
-        <h3 className="text-3xl font-semibold mb-4">The Private Estate Immersion</h3>
-        <p className="text-gray-600 mb-6">Full‑Day • 8–10 hours • Private</p>
+  id: 4,
+  title: "The Grand Two‑Day Greek Wine Journey",
+  image: "/images/greek-wine-tours-athens-day-trips-private-estate-immersion.webp",
+  duration: "Overnight (2 Days)",
+  paymentLink: "",
+  details: (
+    <div>
+      <h3 className="text-3xl font-semibold mb-4">The Grand Two‑Day Greek Wine Journey</h3>
+      <p className="text-gray-600 mb-6">Overnight (2 Days)</p>
 
-        <div className="space-y-4 mb-8">
-          <div>
-            
-            <p className="text-lg font-semibold mt-1">For Couples, Friends or Families</p>
-          </div>
-
-          <div className="border-l-2 border-accent pl-4 space-y-2">
-            <p className="text-sm"><span className="font-semibold">Base Rate:</span> €1,300 (4 guests)</p>
-            <p className="text-sm"><span className="font-semibold">Additional Guests:</span> +€120 per person</p>
-            <p className="text-sm"><span className="font-semibold">Max Group:</span> 6 guests</p>
-            <p className="text-sm"><span className="font-semibold"></span>A full‑day private immersion into Greece’s most storied wine country, offering rare behind‑the‑scenes access to two exceptional estates and a beautifully prepared seated lunch reserved exclusively for your group.</p>
-          </div>
+      <div className="space-y-4 mb-8">
+        <div>
+          <p className="text-lg font-semibold mt-1">
+            For Couples, Friends, Single Travelers or Families
+          </p>
         </div>
 
-        <ul className="space-y-2 text-gray-700">
-          <li>• Fully private experience with no shared groups or strangers</li>
-          <li>• Premium vehicle and dedicated driver exclusively for your group</li>
-          <li>• Exclusive access to a single boutique estate for a deeper, more intimate visit</li>
-          <li>• Founder‑hosted guidance with tailored storytelling and personal attention</li>
-          <li>• Extended cellar and vineyard exploration not offered on group tours</li>
-          <li>• 10–12 premium wines with curated pairings designed specifically for this estate</li>
-          <li>• Unhurried pacing with full flexibility to enjoy the estate at your own rhythm</li>
-          <li>• Direct interaction with winemakers and behind‑the‑scenes insights</li>
-          <li>• All logistics handled end‑to‑end for a seamless, elevated private immersion</li>
-          <li>• Designed for travelers who value privacy, exclusivity and high‑level hospitality</li>
-        </ul>
+        <div className="border-l-2 border-accent pl-4 space-y-2">
+          <p className="text-sm">
+            <span className="font-semibold">Group Size:</span> 2–6 guests
+          </p>
+          <p className="text-sm">
+            <span className="font-semibold">Price:</span> Based on group size
+          </p>
+          <p className="text-sm">
+            A two‑day escape into the heart of Greek wine culture. Wander through
+            legendary Nemea vineyards, taste rare cellar‑only wines, meet the
+            winemakers shaping Greece’s modern wine story and unwind in a peaceful
+            overnight stay surrounded by mountains and vines.
+          </p>
+        </div>
       </div>
-    ),
-  },
+
+      <ul className="space-y-2 text-gray-700">
+        <li>• Premium vehicle and dedicated driver exclusively for your group</li>
+        <li>• Exclusive access to boutique estates for a deeper, more intimate visit</li>
+        <li>• Founder‑hosted guidance with tailored storytelling and personal attention</li>
+        <li>• Extended cellar and vineyard exploration</li>
+        <li>• A variety of premium wine tastings with curated pairings</li>
+        <li>• Unhurried pacing to enjoy the estate at your own rhythm</li>
+        <li>• Direct interaction with winemakers and behind‑the‑scenes insights</li>
+        <li>• All logistics handled end‑to‑end for a seamless, elevated private immersion</li>
+        <li>• Designed for travelers who value privacy, exclusivity and high‑level hospitality</li>
+      </ul>
+
+      <button
+        onClick={() => setShowGuestOverlay(true)}
+        className="mt-8 w-full block text-center bg-accent hover:bg-accent/90 text-accent-foreground py-3 rounded-md font-semibold"
+      >
+        Book Now
+      </button>
+    </div>
+  ),
+},
+
 ];
 
 
@@ -231,8 +270,8 @@ return (
   <div className="hero-bottom-fade"></div>
 
   <div className="hero-text">
-    <h1>The Greek Wine Show</h1>
-    <p>Discover Greece through its wines</p>
+    <h1>Escape Athens. Discover Greece.</h1>
+    <p>Every Glass Tells a Greek Story. Come Taste Yours.</p>
   </div>
 </div>
 
@@ -279,13 +318,8 @@ return (
       <div className="space-y-6">
         <h2 className="leading-tight">Luxury Wine Experiences</h2>
         <p className="text-lg text-foreground/70 leading-relaxed">
-          Each experience is meticulously curated to showcase Greek wine excellence. 
-          We prioritize storytelling, quality and authentic connections with winemakers—never mass tourism. 
-          Our private vineyard experiences in Greece bring you closer to the country’s most expressive terroirs.
-        </p>
-        <p className="text-lg text-foreground/70 leading-relaxed">
-          For travelers seeking food and wine tours in Greece, we design immersive routes that highlight 
-          local gastronomy, artisanal producers and the cultural heritage behind every bottle.
+          Each experience is curated to showcase Greece’s most expressive wines—without the buses, crowds or mass tourism.
+We design intimate routes that blend vineyards, local gastronomy and the stories behind every bottle.
         </p>
       </div>
 
@@ -326,15 +360,27 @@ return (
 
 
       >
-        <img
-          src={exp.image}
-          alt={exp.title}
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-        <h3 className="absolute bottom-4 left-4 text-white text-2xl font-semibold drop-shadow-lg">
-          {exp.title}
-        </h3>
+        {/* IMAGE */}
+<img
+  src={exp.image}
+  alt={exp.title}
+  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+/>
+
+{/* DARK OVERLAY */}
+<div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+
+{/* TOP‑RIGHT DURATION BADGE */}
+<div className="absolute top-4 right-4 bg-black/60 text-white text-sm font-medium px-3 py-1 rounded-md backdrop-blur-sm">
+  Duration: {exp.duration}
+</div>
+
+{/* TITLE */}
+<h3 className="absolute bottom-4 left-4 text-white text-2xl font-semibold drop-shadow-lg">
+  {exp.title}
+</h3>
+
+
       </div>
     ))}
   </div>
@@ -344,16 +390,15 @@ return (
     <div className="mb-12 p-10 bg-white rounded-xl shadow-xl border border-gray-200">
       {experiences.find((e) => e.id === activeExperience)?.details}
 
-      <Button
-        className="mt-8 w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-        onClick={() => {
-          setActiveForm("tour");
-          const contactSection = document.getElementById("contact");
-          if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        Reserve Now
-      </Button>
+      <a
+  href={experiences.find((e) => e.id === activeExperience)?.paymentLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-8 w-full block text-center bg-accent hover:bg-accent/90 text-accent-foreground py-3 rounded-md font-semibold"
+>
+  Book Now
+</a>
+
     </div>
   )}
 
@@ -377,15 +422,26 @@ return (
 }}
 
       >
-        <img
-          src={exp.image}
-          alt={exp.title}
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
-        <h3 className="absolute bottom-4 left-4 text-white text-2xl font-semibold drop-shadow-lg">
-          {exp.title}
-        </h3>
+       {/* IMAGE */}
+<img
+  src={exp.image}
+  alt={exp.title}
+  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+/>
+
+{/* DARK OVERLAY */}
+<div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors" />
+
+{/* TOP‑RIGHT DURATION BADGE */}
+<div className="absolute top-4 right-4 bg-black/60 text-white text-sm font-medium px-3 py-1 rounded-md backdrop-blur-sm">
+  Duration: {exp.duration}
+</div>
+
+{/* TITLE */}
+<h3 className="absolute bottom-4 left-4 text-white text-2xl font-semibold drop-shadow-lg">
+  {exp.title}
+</h3>
+
       </div>
     ))}
   </div>
@@ -395,16 +451,19 @@ return (
     <div className="mt-12 p-10 bg-white rounded-xl shadow-xl border border-gray-200">
       {experiences.find((e) => e.id === activeExperience)?.details}
 
-      <Button
-        className="mt-8 w-full bg-accent hover:bg-accent/90 text-accent-foreground"
-        onClick={() => {
-          setActiveForm("tour");
-          const contactSection = document.getElementById("contact");
-          if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        Reserve Now
-      </Button>
+   {activeExperience === 3 && (
+  <a
+    href={experiences.find((e) => e.id === 3)?.paymentLink}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-8 w-full block text-center bg-accent hover:bg-accent/90 text-accent-foreground py-3 rounded-md font-semibold"
+  >
+    Book Now
+  </a>
+)}
+
+
+
     </div>
   )}
 </section>
@@ -430,7 +489,7 @@ return (
 
     
 
-    <div className="min-h-screen bg-background text-foreground mt-24">
+    <div className="min-h-screen bg-background text-foreground mt-0">
 
       
       {/* Navigation */}
@@ -473,9 +532,9 @@ return (
               <p className="text-primary text-sm font-semibold uppercase tracking-widest">
                 Curated Luxury Wine Experiences
               </p>
-              <h1 className="text-3xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-3xl font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
   Private Luxury Wine Experiences in Greece
-</h1>
+</h2>
 
               <p className="text-lg text-foreground/70 max-w-xl leading-relaxed">
                 Greece is a land shaped by wine — ancient vineyards, volcanic soils and a culture that has celebrated the craft for thousands of years. At The Greek Wine Show, we curate premium, story‑driven wine experiences for travelers seeking authenticity, depth and a true connection to Greek wine culture.<br /><br />
@@ -1311,6 +1370,65 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
         </div>
             </footer>
     </div>
+
+{showGuestOverlay && (
+  <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+    <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-xl relative">
+
+      <button
+        onClick={() => setShowGuestOverlay(false)}
+        className="absolute top-4 right-4 text-gray-500 hover:text-black"
+      >
+        ✕
+      </button>
+
+      <h2 className="text-2xl font-semibold mb-6">Select Number of Guests</h2>
+
+      <select
+        value={guests}
+        onChange={(e) => setGuests(Number(e.target.value))}
+        className="w-full border rounded-md p-3 mb-6"
+      >
+        <option value={1}>1 Guest</option>
+        <option value={2}>2 Guests</option>
+        <option value={3}>3 Guests</option>
+        <option value={4}>4 Guests</option>
+        <option value={5}>5 Guests</option>
+        <option value={6}>6 Guests</option>
+      </select>
+
+      <div className="mb-6">
+        <p className="text-xl font-semibold">Total: €{price}</p>
+        <p className="text-gray-600">€{pricePerPerson} per person</p>
+        {guests > 1 && (
+          <p className="text-green-600 font-medium mt-2">
+            Save €{savings} compared to booking individually
+          </p>
+        )}
+      </div>
+
+      <button
+        onClick={async () => {
+          const response = await fetch("http://localhost:4242/create-checkout-session", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ guests }),
+          });
+
+          const data = await response.json();
+          window.location.href = data.url;
+        }}
+        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-3 rounded-md font-semibold"
+      >
+        Continue to Payment
+      </button>
+
+    </div>
+  </div>
+)}
+
+
+
   </>
   );
 }
