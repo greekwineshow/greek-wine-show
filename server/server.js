@@ -7,8 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // 1. Your Stripe secret key (from Stripe Dashboard)
-const stripe = new Stripe("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");
-
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // 2. Your price table (your exact guest-count prices)
 const PRICE_TABLE = {
   1: 86000,   // €860.00
