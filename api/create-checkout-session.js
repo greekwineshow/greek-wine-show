@@ -39,8 +39,8 @@ export default async function handler(req, res) {
           quantity: 1
         }
       ],
-      success_url: "https://your-site.com/success",
-      cancel_url: "https://your-site.com/cancel"
+      success_url: "https://greekwineshow.com",
+      cancel_url: "https://greekwineshow.com"
     });
 
     return res.status(200).json({ url: session.url });
