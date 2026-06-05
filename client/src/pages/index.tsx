@@ -1409,7 +1409,7 @@ Whether you’re looking for a Private Wine Experience in Greece, a Luxury Wine 
 
       <button
         onClick={async () => {
-          const response = await fetch("http://localhost:4242/create-checkout-session", {
+          const response = await fetch("/api/create-checkout-session", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ guests }),
